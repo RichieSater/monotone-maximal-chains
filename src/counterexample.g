@@ -1,8 +1,8 @@
 # Explicit counterexample family for the monotone-maximal-chain problem.
 #
-# For an odd prime p, this builds the t=2 instance of Kohler's construction
-# as a 5-dimensional matrix group over GF(p).  The smallest instance p=3 has
-# order 2^6 * 3^8 = 419904.
+# For an odd prime p, this builds a 5-dimensional matrix group over GF(p)
+# modeled on the t=2 case of Kohler's construction.  The smallest family
+# member, at p=3, has order 2^6 * 3^8 = 419904.
 
 MMCBuildCounterexample := function(p)
     local field, one, identity5, matrix_generator, block_diagonal,

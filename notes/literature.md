@@ -8,6 +8,11 @@
   This paper introduces the `<`-chain and `>`-chain terminology used in the
   question and studies groups with prescribed monotone chains.
 
+  The universal-existence question addressed in this repository is not
+  attributed to that article. In an email to Richie Sater dated August 8,
+  2026, Monakhov wrote that he and Sokhor proposed the question; the article
+  supplies the surrounding terminology and background.
+
 - Victor S. Monakhov and Irina L. Sokhor, **To the Iwasawa and Huppert
   Theorems on Supersolvability of Finite Groups**, *Siberian Electronic
   Mathematical Reports* **22** (2025), 143--153,
@@ -24,9 +29,10 @@
   Kohler constructs, for every odd prime $p$ and integer $t$, a soluble
   group whose maximal-subgroup indices lie in $\{2,p,p^2\}$, but which
   contains an irreducible section of order $p^{2^t}$.  The counterexample
-  in this repository is the $t=2$ matrix model, together with the new
-  observation that its nested maximal-index spectra exclude every
-  nondecreasing maximal chain.
+  in this repository is modeled on the $t=2$ case: its four degree-one
+  coordinates and four independent cross-commutator coordinates yield a
+  group of order $p^8$. The observation here is that its nested
+  maximal-index spectra exclude every nondecreasing maximal chain.
 
 - Joseph Kohler, **Finite Groups with All Maximal Subgroups of Prime or Prime
   Square Index**, PhD thesis, California Institute of Technology (1962),

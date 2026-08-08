@@ -2,7 +2,8 @@
 
 ## Result
 
-The answer to Monakhov and Sokhor's question is **no**. For every odd
+The answer to Monakhov and Sokhor's question, communicated to Richie Sater
+by Monakhov's email of August 8, 2026, is **no**. For every odd
 prime $p$, the group $G_p$ constructed below has no unrefinable subgroup
 chain with nondecreasing indices. The smallest member, $G_3$, has order
 
@@ -10,7 +11,7 @@ chain with nondecreasing indices. The smallest member, $G_3$, has order
 |G_3|=2^6 3^8=419904.
 \]
 
-The construction is the $t=2$ instance of an idea used by Joseph Kohler
+The construction is modeled on the $t=2$ case of an idea used by Joseph Kohler
 to show that bounds on maximal-subgroup indices need not pass to subgroups.
 The obstruction to a monotone chain appears to be new.
 
@@ -97,35 +98,40 @@ z\longmapsto AzB^{-1}.
 Finally set $G_p=L\rtimes H\le \operatorname{GL}_5(p)$. Its order is
 $2^6p^8$. Both factors are soluble, so $G_p$ is soluble.
 
-As an $H$-module,
+Set $\bar X=XZ/Z$ and $\bar Y=YZ/Z$. As an $H$-module,
 
 \[
 L/Z\cong \bar X\oplus\bar Y,
 \]
 
-where both summands are irreducible of dimension $2$ and are
-nonisomorphic. Moreover,
+where both summands are irreducible of dimension $2$. Their kernels in
+$H=D\times D$ are respectively $1\times D$ and $D\times1$, so they are
+nonisomorphic. Since $p\nmid |H|=64$, Maschke's theorem applies and these
+are the only maximal $H$-submodules of $L/Z$. Moreover,
 
 \[
 Z\cong U\boxtimes U^*,
 \]
 
-the external tensor product for the two factors of $D\times D$. After
-extending scalars to an algebraic closure, irreducible modules for a direct
-product are external tensor products. Hence $Z$ is an irreducible
+the external tensor product for the two factors of $D\times D$. Over an
+algebraic closure, $U$ and $U^*$ remain irreducible, and their external
+tensor product is irreducible for $D\times D$. Hence $Z$ is an irreducible
 $H$-module of dimension $4$.
 
 ## Maximal-subgroup spectra
 
-Every maximal subgroup $M$ of $G_p$ contains $Z$. Otherwise
+The conjugation formulas show explicitly that $Z\lhd G_p$. Every maximal
+subgroup $M$ of $G_p$ contains $Z$. Otherwise
 $G_p=ZM$, and the modular law gives
 
 \[
 L=Z(L\cap M)=\Phi(L)(L\cap M).
 \]
 
-The defining property of the Frattini subgroup forces $L\cap M=L$, a
-contradiction.
+Here we use the standard Frattini fact that
+$L=\Phi(L)K$ implies $K=L$: if $K<L$, a maximal subgroup containing $K$
+also contains $\Phi(L)$, a contradiction. Thus $L\cap M=L$, contrary to
+$Z\nleq M$.
 
 Consequently the maximal subgroups of $G_p$ are read off from
 
@@ -200,7 +206,7 @@ Run:
 ./src/run-gap.sh tests/counterexample.g
 ~~~
 
-For $p=3$, GAP independently returns the three spectra
+For $p=3,5,7$, GAP reproduces the predicted spectra. For $p=3$ they are
 
 ~~~text
 [2,9], [2,9,81], [2,81]

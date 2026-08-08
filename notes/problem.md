@@ -1,5 +1,9 @@
 # Problem statement and conventions
 
+The canonical source is Victor Monakhov's email to Richie Sater dated
+August 8, 2026, in which Monakhov wrote that he and Irina Sokhor proposed
+the problem. See [`question-provenance.md`](question-provenance.md).
+
 ## Problem
 
 For every finite group \(G\), is there a chain

@@ -1,12 +1,18 @@
-.PHONY: test counterexample smoke paper clean-paper
+.PHONY: test counterexample smoke mmc-crosscheck certificates paper clean-paper
 
-test: smoke counterexample
+test: smoke mmc-crosscheck counterexample
 
 counterexample:
 	./src/run-gap.sh tests/counterexample.g
 
 smoke:
 	./src/run-gap.sh tests/smoke.g
+
+mmc-crosscheck:
+	./src/run-gap.sh tests/mmc-crosscheck.g
+
+certificates:
+	./src/capture-certificates.sh
 
 paper:
 	mkdir -p paper/build

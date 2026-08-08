@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: >-
+  If you use the theorem, construction, or verification materials, please
+  cite this repository release and the accompanying paper.
+title: "Monotone maximal chains in finite groups: paper and verification materials"
+type: software
+version: 1.0.0
+date-released: 2026-08-08
+authors:
+  - family-names: Sater
+    given-names: Richie
+    email: richiesater@gmail.com
+    orcid: "https://orcid.org/0009-0007-9051-8207"
+repository-code: "https://github.com/RichieSater/monotone-maximal-chains"
+url: "https://github.com/RichieSater/monotone-maximal-chains/releases/tag/v1.0.0"
+keywords:
+  - finite groups
+  - maximal chains
+  - maximal-subgroup indices
+  - soluble groups
+  - GAP
+preferred-citation:
+  type: article
+  title: "A negative answer to a question on monotone maximal chains in finite groups"
+  authors:
+    - family-names: Sater
+      given-names: Richie
+      email: richiesater@gmail.com
+      orcid: "https://orcid.org/0009-0007-9051-8207"
+  year: 2026
+  month: 8
+  url: "https://github.com/RichieSater/monotone-maximal-chains/releases/tag/v1.0.0"

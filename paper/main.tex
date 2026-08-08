@@ -1,4 +1,4 @@
-\documentclass[11pt]{article}
+\documentclass[11pt]{amsart}
 
 \usepackage[margin=1in]{geometry}
 \usepackage{amsmath,amssymb,amsthm,mathtools}
@@ -9,24 +9,32 @@
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{remark}[theorem]{Remark}
 \newcommand{\F}{\mathbb F}
-\newcommand{\PhiG}{\mathop{\rm Phi}}
 \newcommand{\I}{\mathcal I}
 
 \title{A Negative Answer to a Question on\\Monotone Maximal Chains in Finite Groups}
-\author{Richie Sater\\\texttt{richiesater@gmail.com}}
+\author{Richie Sater}
+\address{Independent Researcher, United States}
+\email{richiesater@gmail.com}
+\urladdr{https://orcid.org/0009-0007-9051-8207}
 \date{August 8, 2026}
+\subjclass[2020]{Primary 20D35; Secondary 20D10, 20C20}
+\keywords{finite groups, maximal chains, maximal-subgroup indices, soluble
+groups, semidirect products}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-Monakhov and Sokhor asked whether every finite group has an unrefinable
-subgroup chain whose successive indices are nondecreasing.  We give a
-negative answer.  For every odd prime $p$, we construct a soluble matrix
-group $G_p\leq \operatorname{GL}_5(p)$ of order $2^6p^8$ with no such
-chain.  In particular, $G_3$ has order $419904$.  The construction is a
-small instance of an example of Kohler; the obstruction is certified by
-three elementary maximal-subgroup calculations.
+In an email dated August 8, 2026, V.~S.~Monakhov communicated a question
+proposed jointly with I.~L.~Sokhor: whether every finite group has an
+unrefinable subgroup chain whose successive indices are nondecreasing.  We
+give a negative answer, even among soluble groups.  For every odd prime
+$p$, we construct a soluble matrix group
+$G_p\leq \operatorname{GL}_5(p)$ of order $2^6p^8$ with no such chain.
+Thus the counterexamples form an infinite family; its smallest member,
+$G_3$, has order $419904$.  The construction is modeled on an example of
+Kohler, and the obstruction follows from three elementary maximal-subgroup
+calculations.
 \end{abstract}
 
 \section{Introduction}
@@ -41,8 +49,15 @@ the chain the indices $j_i=[G_i:G_{i-1}]$.  Following Monakhov and Sokhor
 \[
   j_1\leq j_2\leq\cdots\leq j_n.
 \]
-They asked whether every finite group contains an increasing unrefinable
-chain.  We prove the following.
+In an email to the author dated August 8, 2026, V.~S.~Monakhov wrote that
+he and I.~L.~Sokhor proposed the following question.\footnote{This email is
+the source of the question.  Reference~\cite{MS2025} is cited for terminology
+and background, not as a published source of the universal-existence
+question.}
+\begin{quote}
+Does every finite group contain an increasing unrefinable subgroup chain?
+\end{quote}
+We prove the following negative answer.
 
 \begin{theorem}\label{thm:main}
 For every odd prime $p$, there is a soluble group $G_p$ of order $2^6p^8$
@@ -50,11 +65,15 @@ which has no increasing unrefinable subgroup chain.
 \end{theorem}
 
 The smallest group in the family has order
-$2^6 3^8=419904$.  Our construction is the $t=2$ case of the construction
-in Kohler's work on maximal-subgroup indices \cite{Kohler1964}.  Kohler used
-it to show that a group whose maximal subgroups have prime or prime-square
-index can contain subgroups with arbitrarily large maximal-subgroup index.
-Here we use the nested index pattern itself.
+$2^6 3^8=419904$; no claim of global minimality is made.  Our construction
+is modeled on the $t=2$ case of Kohler's work on maximal-subgroup indices
+\cite{Kohler1964}.  Kohler used his construction to show that a group whose
+maximal subgroups have prime or prime-square index can contain subgroups
+with arbitrarily large maximal-subgroup index.  In the matrix model below,
+the four coordinates in $x$ and $y$ play the role of four degree-one
+generators, while the four coordinates in $z$ are the independent cross-
+commutator coordinates; consequently the associated $p$-group has order
+$p^{4+4}=p^8$.  Here we use the nested index pattern itself.
 
 \section{A lemma on maximal subgroups}
 
@@ -65,11 +84,11 @@ For a finite group $A$, write
 
 \begin{lemma}\label{lem:semidirect}
 Let $V$ be an elementary abelian $p$-group, let $H$ be a $p'$-group acting
-on $V$, and put $K=V\rtimes H$.  Every maximal subgroup of $K$ is of one
-of the following forms:
+on $V$, put $K=V\rtimes H$, and let $\pi:K\to H$ be the natural
+projection.  Every maximal subgroup of $K$ is of one of the following
+forms:
 \begin{enumerate}
-\item $V\rtimes J$, up to the natural identification, where $J$ is maximal
-      in $H$;
+\item $\pi^{-1}(J)=V\rtimes J$, where $J$ is maximal in $H$;
 \item a $V$-conjugate of $W\rtimes H$, where $W$ is a maximal proper
       $H$-submodule of $V$.
 \end{enumerate}
@@ -132,7 +151,8 @@ $p$: explicitly,
  \ell(x,y,z)^p
  =\ell\left(0,0,pz+\binom p2xy\right)=1.
 \]
-Consequently
+The standard Frattini formula for a finite $p$-group (equivalently, the
+Burnside basis theorem) now gives
 \begin{equation}\label{eq:frattini}
  \Phi(L)=L^pL'=Z.
 \end{equation}
@@ -142,27 +162,41 @@ $\operatorname{diag}(A,1,B)$, with $A,B\in D$.  Conjugation acts by
 \[
  x\mapsto Ax,\qquad y\mapsto yB^{-1},\qquad z\mapsto AzB^{-1}.
 \]
-It therefore normalizes $L$.  Set
+It therefore normalizes both $L$ and $Z$, so in particular $Z\lhd G_p$
+for the group
 \[
  G_p=L\rtimes H\leq\operatorname{GL}_5(p).
 \]
 We have $|G_p|=p^8\cdot 8^2=2^6p^8$.  Both $L$ and $H$ are soluble, so
 $G_p$ is soluble.
 
-As an $H$-module,
+Set $\overline X=XZ/Z$ and $\overline Y=YZ/Z$.  As an $H$-module,
 \begin{equation}\label{eq:modules}
  L/Z=\overline X\oplus\overline Y,
 \end{equation}
 where $\overline X$ and $\overline Y$ are nonisomorphic irreducible modules
-of dimension $2$.  The first factor of $D\times D$ acts naturally on
-$\overline X$ and the second acts naturally (dually) on $\overline Y$.
+of dimension $2$.  More explicitly, the first factor of $D\times D$ acts
+naturally on $\overline X$ and the second acts trivially, while the second
+factor acts naturally and dually on $\overline Y$ and the first acts
+trivially.  Thus
+\[
+ \ker_H(\overline X)=1\times D,
+ \qquad
+ \ker_H(\overline Y)=D\times 1,
+\]
+which also proves that the two modules are nonisomorphic.  Since
+$p\nmid |H|=64$, Maschke's theorem applies.  Hence the only maximal
+$H$-submodules of $L/Z$ are $\overline X$ and $\overline Y$.
+
 Moreover,
 \begin{equation}\label{eq:tensor}
  Z\cong U\boxtimes U^*
 \end{equation}
 is the external tensor product for the two direct factors of $H$.  Hence
-$Z$ is an irreducible $H$-module of dimension $4$ (after scalar extension,
-irreducible modules for a direct product are external tensor products).
+$Z$ is an irreducible $H$-module of dimension $4$: over an algebraic
+closure $\overline F$, both $U_{\overline F}$ and
+$U^*_{\overline F}$ remain irreducible, and their external tensor product
+is irreducible for $D\times D$.
 
 \section{The index obstruction}
 
@@ -190,8 +224,10 @@ $G_p=ZM$, and the modular law and \eqref{eq:frattini} give
 \[
  L=L\cap ZM=Z(L\cap M)=\Phi(L)(L\cap M).
 \]
-The defining property of the Frattini subgroup forces $L\cap M=L$, which
-contradicts $Z\nleq M$.
+Recall the Frattini fact that $L=\Phi(L)K$ for a subgroup $K\leq L$
+implies $K=L$: otherwise a maximal subgroup of $L$ containing $K$ would
+also contain $\Phi(L)$ and hence $L$.  Applying this with $K=L\cap M$
+forces $L\cap M=L$, which contradicts $Z\nleq M$.
 
 It follows that the maximal subgroups of $G_p$ are the inverse images of
 the maximal subgroups of
@@ -204,7 +240,8 @@ summand have index $p^2$.  This proves the first spectrum and the assertion
 about $M_X,M_Y$.
 
 In $M_X$, the normal elementary abelian subgroup $Z\times X$ is a direct
-sum of irreducible $H$-modules of dimensions $4$ and $2$.  Another
+sum of nonisomorphic irreducible $H$-modules of dimensions $4$ and $2$.
+Its only maximal $H$-submodules are therefore its two summands.  Another
 application of Lemma~\ref{lem:semidirect} gives indices $2,p^2,p^4$; the
 index-$p^2$ case removes the $X$ summand and gives a conjugate of $N$.
 The same argument applies to $M_Y$.  Finally, $Z$ is irreducible of
@@ -232,14 +269,41 @@ $j_{n-2}=2$.  This forces all preceding indices to equal $2$, impossible
 because $p$ divides $|N|$.  The contradiction proves the theorem.
 \end{proof}
 
-\begin{remark}
-For $p=3$, a GAP verification computes the successive spectra as
+\begin{remark}\label{rem:computation}
+GAP computations for $p=3,5,7$ reproduce the predicted spectra; for
+$p=3$ these are
 \[
  \{2,9\},\qquad \{2,9,81\},\qquad \{2,81\},
 \]
-and independently exhausts all admissible branches.  The code is available
-in the repository accompanying this note.
+and an exhaustive branch search finds no admissible chain.  These
+computations corroborate, but are not needed for, the proof.  The code,
+tests, captured environments, and outputs are available in release
+\href{https://github.com/RichieSater/monotone-maximal-chains/releases/tag/v1.0.0}{v1.0.0}
+of the accompanying repository \cite{Repository}.  The certificate was
+reproduced under GAP 4.11.1 and GAP 4.16.0.
 \end{remark}
+
+\section*{Acknowledgements}
+
+The author thanks V.~S.~Monakhov and I.~L.~Sokhor for posing the question,
+and Monakhov for communicating it by email.
+
+\section*{Code and data availability}
+
+The complete computational supplement is available in the public
+\href{https://github.com/RichieSater/monotone-maximal-chains}{verification
+repository}.  Release \texttt{v1.0.0} is the version corresponding to this
+manuscript.  Source code is licensed under the MIT License, and the manuscript
+and documentation are licensed under CC BY 4.0.
+
+\section*{Declaration of generative AI and AI-assisted technologies}
+
+During this project the author used Anthropic's Claude and OpenAI Codex for
+mathematical exploration and criticism, literature-search assistance,
+drafting and debugging GAP code, and manuscript organization and editing.
+The author checked the mathematical argument, reran the committed tests, and
+verified the cited references, and takes full responsibility for the content
+of the article.
 
 \begin{thebibliography}{9}
 
@@ -255,6 +319,12 @@ V. S. Monakhov and I. L. Sokhor,
 \emph{On indices of maximal chains in finite groups},
 Results Math. \textbf{80} (2025), article 155.
 \href{https://doi.org/10.1007/s00025-025-02468-5}{doi:10.1007/s00025-025-02468-5}.
+
+\bibitem{Repository}
+R. Sater,
+\emph{Monotone maximal chains in finite groups: verification materials},
+version 1.0.0 (2026), GitHub repository,
+\url{https://github.com/RichieSater/monotone-maximal-chains/releases/tag/v1.0.0}.
 
 \end{thebibliography}
 

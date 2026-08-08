@@ -1,0 +1,261 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\F}{\mathbb F}
+\newcommand{\PhiG}{\mathop{\rm Phi}}
+\newcommand{\I}{\mathcal I}
+
+\title{A Negative Answer to a Question on\\Monotone Maximal Chains in Finite Groups}
+\author{Richie Sater\\\texttt{richiesater@gmail.com}}
+\date{August 8, 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Monakhov and Sokhor asked whether every finite group has an unrefinable
+subgroup chain whose successive indices are nondecreasing.  We give a
+negative answer.  For every odd prime $p$, we construct a soluble matrix
+group $G_p\leq \operatorname{GL}_5(p)$ of order $2^6p^8$ with no such
+chain.  In particular, $G_3$ has order $419904$.  The construction is a
+small instance of an example of Kohler; the obstruction is certified by
+three elementary maximal-subgroup calculations.
+\end{abstract}
+
+\section{Introduction}
+
+Let $G\neq 1$ be finite.  An unrefinable subgroup chain
+\[
+  1=G_0<G_1<\cdots<G_n=G
+\]
+is one in which $G_{i-1}$ is maximal in $G_i$ for every $i$.  Associate to
+the chain the indices $j_i=[G_i:G_{i-1}]$.  Following Monakhov and Sokhor
+\cite{MS2025}, call the chain increasing if
+\[
+  j_1\leq j_2\leq\cdots\leq j_n.
+\]
+They asked whether every finite group contains an increasing unrefinable
+chain.  We prove the following.
+
+\begin{theorem}\label{thm:main}
+For every odd prime $p$, there is a soluble group $G_p$ of order $2^6p^8$
+which has no increasing unrefinable subgroup chain.
+\end{theorem}
+
+The smallest group in the family has order
+$2^6 3^8=419904$.  Our construction is the $t=2$ case of the construction
+in Kohler's work on maximal-subgroup indices \cite{Kohler1964}.  Kohler used
+it to show that a group whose maximal subgroups have prime or prime-square
+index can contain subgroups with arbitrarily large maximal-subgroup index.
+Here we use the nested index pattern itself.
+
+\section{A lemma on maximal subgroups}
+
+For a finite group $A$, write
+\[
+  \I(A)=\{[A:B]:B\text{ is maximal in }A\}.
+\]
+
+\begin{lemma}\label{lem:semidirect}
+Let $V$ be an elementary abelian $p$-group, let $H$ be a $p'$-group acting
+on $V$, and put $K=V\rtimes H$.  Every maximal subgroup of $K$ is of one
+of the following forms:
+\begin{enumerate}
+\item $V\rtimes J$, up to the natural identification, where $J$ is maximal
+      in $H$;
+\item a $V$-conjugate of $W\rtimes H$, where $W$ is a maximal proper
+      $H$-submodule of $V$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Let $T$ be maximal in $K$.  If $V\leq T$, the claim follows on passing to
+$K/V\cong H$.  Suppose $V\nleq T$.  Then $VT=K$.  Put $W=V\cap T$.
+The group $T$ normalizes $W$, while $V$ centralizes it, so $W\lhd K$.
+In $K/W$, the groups $T/W$ and $WH/W$ are complements to $V/W$.
+Schur--Zassenhaus makes these complements conjugate by an element of $V/W$.
+Thus $T$ is $V$-conjugate to $W\rtimes H$, and maximality of $T$ is
+equivalent to maximality of $W$ among proper $H$-submodules of $V$.
+\end{proof}
+
+In particular, if $H$ is a $2$-group, subgroups of the first type have
+index $2$.  If $V$ is completely reducible, subgroups of the second type
+have indices equal to the orders of the irreducible quotients of $V$.
+
+\section{The counterexample family}
+
+Fix an odd prime $p$ and put $F=\F_p$.  Let
+\[
+ s=\begin{pmatrix}0&1\\1&0\end{pmatrix},\qquad
+ t=\begin{pmatrix}1&0\\0&-1\end{pmatrix},\qquad
+ D=\langle s,t\rangle\leq\operatorname{GL}_2(F).
+\]
+Then $D\cong D_8$, where $D_8$ has order $8$.  The natural $FD$-module
+$U=F^2$ is absolutely irreducible.  Indeed, over an algebraic closure the
+only $t$-invariant lines are the two coordinate lines, and $s$ interchanges
+them.
+
+Let $H=D\times D$.  Define
+\[
+ L=\left\{
+ \ell(x,y,z)=
+ \begin{pmatrix}
+ I_2&x&z\\
+ 0&1&y\\
+ 0&0&I_2
+ \end{pmatrix}:
+ x\in F^{2\times1},\ y\in F^{1\times2},\ z\in F^{2\times2}
+ \right\}.
+\]
+Here the block sizes are $2,1,2$.  Direct multiplication gives
+\begin{equation}\label{eq:mult}
+ \ell(x,y,z)\ell(x',y',z')
+ =\ell(x+x',y+y',z+z'+xy').
+\end{equation}
+Thus $|L|=p^8$.  Put
+\[
+ Z=\{\ell(0,0,z)\},\quad
+ X=\{\ell(x,0,0)\},\quad
+ Y=\{\ell(0,y,0)\}.
+\]
+The group $Z$ is central in $L$.  The outer products $xy$ span
+$F^{2\times2}$, so \eqref{eq:mult} gives $L'=Z$.  Also $L$ has exponent
+$p$: explicitly,
+\[
+ \ell(x,y,z)^p
+ =\ell\left(0,0,pz+\binom p2xy\right)=1.
+\]
+Consequently
+\begin{equation}\label{eq:frattini}
+ \Phi(L)=L^pL'=Z.
+\end{equation}
+
+Embed $H$ in $\operatorname{GL}_5(F)$ through the block-diagonal matrices
+$\operatorname{diag}(A,1,B)$, with $A,B\in D$.  Conjugation acts by
+\[
+ x\mapsto Ax,\qquad y\mapsto yB^{-1},\qquad z\mapsto AzB^{-1}.
+\]
+It therefore normalizes $L$.  Set
+\[
+ G_p=L\rtimes H\leq\operatorname{GL}_5(p).
+\]
+We have $|G_p|=p^8\cdot 8^2=2^6p^8$.  Both $L$ and $H$ are soluble, so
+$G_p$ is soluble.
+
+As an $H$-module,
+\begin{equation}\label{eq:modules}
+ L/Z=\overline X\oplus\overline Y,
+\end{equation}
+where $\overline X$ and $\overline Y$ are nonisomorphic irreducible modules
+of dimension $2$.  The first factor of $D\times D$ acts naturally on
+$\overline X$ and the second acts naturally (dually) on $\overline Y$.
+Moreover,
+\begin{equation}\label{eq:tensor}
+ Z\cong U\boxtimes U^*
+\end{equation}
+is the external tensor product for the two direct factors of $H$.  Hence
+$Z$ is an irreducible $H$-module of dimension $4$ (after scalar extension,
+irreducible modules for a direct product are external tensor products).
+
+\section{The index obstruction}
+
+\begin{lemma}\label{lem:spectra}
+The following maximal-index spectra occur:
+\begin{align*}
+ \I(G_p)&=\{2,p^2\},\\
+ \I(M_X)=\I(M_Y)&=\{2,p^2,p^4\},\\
+ \I(N)&=\{2,p^4\},
+\end{align*}
+where
+\[
+ M_X=(Z\times X)\rtimes H,\qquad
+ M_Y=(Z\times Y)\rtimes H,\qquad
+ N=Z\rtimes H.
+\]
+Every maximal subgroup of $G_p$ of index $p^2$ is conjugate to $M_X$ or
+$M_Y$.  Every maximal subgroup of $M_X$ or $M_Y$ of index $p^2$ is
+conjugate to $N$.
+\end{lemma}
+
+\begin{proof}
+First, every maximal subgroup $M$ of $G_p$ contains $Z$.  If not, then
+$G_p=ZM$, and the modular law and \eqref{eq:frattini} give
+\[
+ L=L\cap ZM=Z(L\cap M)=\Phi(L)(L\cap M).
+\]
+The defining property of the Frattini subgroup forces $L\cap M=L$, which
+contradicts $Z\nleq M$.
+
+It follows that the maximal subgroups of $G_p$ are the inverse images of
+the maximal subgroups of
+\[
+ G_p/Z=(\overline X\oplus\overline Y)\rtimes H.
+\]
+Apply Lemma~\ref{lem:semidirect} and \eqref{eq:modules}.  Maximal subgroups
+coming from $H$ have index $2$, and those coming from either irreducible
+summand have index $p^2$.  This proves the first spectrum and the assertion
+about $M_X,M_Y$.
+
+In $M_X$, the normal elementary abelian subgroup $Z\times X$ is a direct
+sum of irreducible $H$-modules of dimensions $4$ and $2$.  Another
+application of Lemma~\ref{lem:semidirect} gives indices $2,p^2,p^4$; the
+index-$p^2$ case removes the $X$ summand and gives a conjugate of $N$.
+The same argument applies to $M_Y$.  Finally, $Z$ is irreducible of
+dimension $4$, so Lemma~\ref{lem:semidirect} applied to $N=Z\rtimes H$
+gives $\I(N)=\{2,p^4\}$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+Suppose
+\[
+ 1=G_0<G_1<\cdots<G_n=G_p
+\]
+is unrefinable and its indices $j_i=[G_i:G_{i-1}]$ are nondecreasing.
+By Lemma~\ref{lem:spectra}, $j_n\in\{2,p^2\}$.  We cannot have $j_n=2$:
+then every $j_i$ would be $2$, whereas $p$ divides $|G_p|$.  Thus
+$j_n=p^2$, and $G_{n-1}$ is conjugate to $M_X$ or $M_Y$.
+
+Now $j_{n-1}\leq p^2$.  The middle spectrum in
+Lemma~\ref{lem:spectra} shows that $j_{n-1}$ is $2$ or $p^2$.  It cannot be
+$2$, for the same order argument applied to $G_{n-1}$.  Hence
+$j_{n-1}=p^2$, and $G_{n-2}$ is conjugate to $N$.
+
+Finally, $j_{n-2}\leq p^2$, but $\I(N)=\{2,p^4\}$.  Therefore
+$j_{n-2}=2$.  This forces all preceding indices to equal $2$, impossible
+because $p$ divides $|N|$.  The contradiction proves the theorem.
+\end{proof}
+
+\begin{remark}
+For $p=3$, a GAP verification computes the successive spectra as
+\[
+ \{2,9\},\qquad \{2,9,81\},\qquad \{2,81\},
+\]
+and independently exhausts all admissible branches.  The code is available
+in the repository accompanying this note.
+\end{remark}
+
+\begin{thebibliography}{9}
+
+\bibitem{Kohler1964}
+J. Kohler,
+\emph{Finite groups with all maximal subgroups of prime or prime square
+index},
+Canad. J. Math. \textbf{16} (1964), 435--442.
+\href{https://doi.org/10.4153/CJM-1964-046-6}{doi:10.4153/CJM-1964-046-6}.
+
+\bibitem{MS2025}
+V. S. Monakhov and I. L. Sokhor,
+\emph{On indices of maximal chains in finite groups},
+Results Math. \textbf{80} (2025), article 155.
+\href{https://doi.org/10.1007/s00025-025-02468-5}{doi:10.1007/s00025-025-02468-5}.
+
+\end{thebibliography}
+
+\end{document}

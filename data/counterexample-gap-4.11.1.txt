@@ -1,0 +1,1 @@
+PASS counterexample order=419904 spectra=[ 2, 9 ]/[ 2, 9, 81 ]/[ 2, 81 ] monotone_chain=false

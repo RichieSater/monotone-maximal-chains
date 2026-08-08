@@ -14,6 +14,12 @@ such that:
 
 We call such a chain a **monotone maximal chain** (MMC).
 
+## Resolution
+
+The answer is negative.  See `proofs/counterexample.md` for an infinite
+family of soluble counterexamples of order \(2^6p^8\), one for each odd
+prime \(p\).
+
 ## Immediate observations
 
 - Since \(G_1\) is minimal nontrivial, \(|G_1|\) is prime.

@@ -1,0 +1,5 @@
+# repository_revision=638bbc7e2fc37bfb2685f1edd10ad69a07df9aea
+# host=Darwin-arm64
+# invocation=./src/run-gap.sh tests/mmc-crosscheck.g
+# runner=native gap_binary=/Users/richiesater/dev/.tools/gap-4.16.0/gap
+PASS mmc_crosscheck groups=144 range=SmallGroups(order<=32) exhaustive_sequences=true witness_validation=true

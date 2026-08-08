@@ -1,0 +1,9 @@
+# repository_revision=638bbc7e2fc37bfb2685f1edd10ad69a07df9aea
+# host=Darwin-arm64
+# invocation=./src/run-gap.sh tests/counterexample.g
+# runner=native gap_binary=/Users/richiesater/dev/.tools/gap-4.16.0/gap
+# gap_version=4.16.0
+# test_primes=3,5,7
+PASS p=3 order=419904 spectra=G:[ 2, 9 ] Mx:[ 2, 9, 81 ] My:[ 2, 9, 81 ] N:[ 2, 81 ] monotone_chain=false conjugacy_coverage=true
+PASS p=5 order=25000000 spectra=G:[ 2, 25 ] Mx:[ 2, 25, 625 ] My:[ 2, 25, 625 ] N:[ 2, 625 ] monotone_chain=false conjugacy_coverage=true
+PASS p=7 order=368947264 spectra=G:[ 2, 49 ] Mx:[ 2, 49, 2401 ] My:[ 2, 49, 2401 ] N:[ 2, 2401 ] monotone_chain=false conjugacy_coverage=true

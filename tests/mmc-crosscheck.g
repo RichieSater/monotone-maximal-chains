@@ -1,6 +1,9 @@
 Read("src/mmc.g");;
 SizeScreen([200, 24]);;
 
+Print("# gap_version=", GAPInfo.Version, "\n");
+Print("# test_range=SmallGroups(order<=32)\n");
+
 Check := function(condition, message)
     if not condition then
         Error(message);

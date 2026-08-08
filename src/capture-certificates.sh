@@ -25,6 +25,7 @@ grep -q '^# gap_version=4\.16\.0$' "$native_output"
 
 MMC_REPOSITORY_REVISION="$revision" GAP_BIN="$native_gap" \
   ./src/run-gap.sh tests/mmc-crosscheck.g >"$crosscheck_output"
+grep -q '^# gap_version=4\.16\.0$' "$crosscheck_output"
 grep -q '^PASS mmc_crosscheck groups=144 ' "$crosscheck_output"
 
 MMC_REPOSITORY_REVISION="$revision" GAP_BIN=/nonexistent \

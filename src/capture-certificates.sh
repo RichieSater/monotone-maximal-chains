@@ -13,13 +13,22 @@ if [[ ! -x "$native_gap" ]]; then
 fi
 
 cd "$repo_dir"
-GAP_BIN="$native_gap" ./src/run-gap.sh tests/counterexample.g >"$native_output"
+if [[ -n "$(git status --porcelain)" ]]; then
+  echo "Refusing to capture certificates from a dirty working tree" >&2
+  exit 1
+fi
+revision="$(git rev-parse HEAD)"
+
+MMC_REPOSITORY_REVISION="$revision" GAP_BIN="$native_gap" \
+  ./src/run-gap.sh tests/counterexample.g >"$native_output"
 grep -q '^# gap_version=4\.16\.0$' "$native_output"
 
-GAP_BIN="$native_gap" ./src/run-gap.sh tests/mmc-crosscheck.g >"$crosscheck_output"
+MMC_REPOSITORY_REVISION="$revision" GAP_BIN="$native_gap" \
+  ./src/run-gap.sh tests/mmc-crosscheck.g >"$crosscheck_output"
 grep -q '^PASS mmc_crosscheck groups=144 ' "$crosscheck_output"
 
-GAP_BIN=/nonexistent ./src/run-gap.sh tests/counterexample.g >"$docker_output"
+MMC_REPOSITORY_REVISION="$revision" GAP_BIN=/nonexistent \
+  ./src/run-gap.sh tests/counterexample.g >"$docker_output"
 grep -q '^# gap_version=4\.11\.1$' "$docker_output"
 
 printf 'Wrote %s\nWrote %s\nWrote %s\n' \

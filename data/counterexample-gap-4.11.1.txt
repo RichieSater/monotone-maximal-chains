@@ -1,4 +1,4 @@
-# repository_revision=638bbc7e2fc37bfb2685f1edd10ad69a07df9aea
+# repository_revision=02f718f64fb993c19d11331c366fb49fdea577ec
 # host=Darwin-arm64
 # invocation=./src/run-gap.sh tests/counterexample.g
 # runner=docker image=gapsystem/gap-docker@sha256:d66dca500c3d8b8ca88824d3c3c7315183335af029f6b74ce592ed0d148edaee platform=linux/amd64

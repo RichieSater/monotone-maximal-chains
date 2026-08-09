@@ -13,6 +13,14 @@
 | $\mathcal I(N)=\{2,81\}$ | Apply the lemma to irreducible $Z\rtimes H$ | Both GAP versions |
 | No increasing unrefinable chain exists | The spectra force final indices $p^2,p^2,2$; the last choice would make a group divisible by $p$ have order a power of $2$ | Exhaustive `MMCConstructWitness(G_3)` returns `fail` |
 
+The special case $p=3$ also has a self-contained certificate in
+`G3-verification.g`. It contains the eight literal $5\times5$ matrices,
+imports no other file, enumerates the complete maximal-class index lists, and
+runs a separate top-down exhaustive search. Captured executions under GAP
+4.11.1 and GAP 4.16.0 are in
+`data/G3-verification-gap-4.11.1.txt` and
+`data/G3-verification-gap-4.16.0.txt`.
+
 Captured outputs are in `data/counterexample-gap-4.16.0.txt` and
 `data/counterexample-gap-4.11.1.txt`. The separate exhaustive recurrence and
 witness-validation output is in `data/mmc-crosscheck-gap-4.16.0.txt`.

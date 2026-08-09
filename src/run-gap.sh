@@ -19,9 +19,9 @@ printf '\n'
 if [[ -x "$native_gap" ]]; then
   printf '# runner=native gap_binary=%s\n' "$native_gap"
   cd "$repo_dir"
-  exec "$native_gap" -A -q "$@"
+  exec "$native_gap" -A -q --quitonbreak "$@"
 fi
 
 printf '# runner=docker image=%s platform=linux/amd64\n' "$image"
 exec docker run --rm --platform linux/amd64 \
-  -v "$repo_dir:/work" -w /work -i "$image" gap -A -q "$@"
+  -v "$repo_dir:/work" -w /work -i "$image" gap -A -q --quitonbreak "$@"

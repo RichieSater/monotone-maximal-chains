@@ -1,9 +1,12 @@
-.PHONY: test counterexample smoke mmc-crosscheck certificates paper clean-paper
+.PHONY: test counterexample g3-verification smoke mmc-crosscheck certificates paper clean-paper
 
-test: smoke mmc-crosscheck counterexample
+test: smoke mmc-crosscheck counterexample g3-verification
 
 counterexample:
 	./src/run-gap.sh tests/counterexample.g
+
+g3-verification:
+	./src/run-gap.sh G3-verification.g
 
 smoke:
 	./src/run-gap.sh tests/smoke.g

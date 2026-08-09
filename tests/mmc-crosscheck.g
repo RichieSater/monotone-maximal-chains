@@ -6,7 +6,8 @@ Print("# test_range=SmallGroups(order<=32)\n");
 
 Check := function(condition, message)
     if not condition then
-        Error(message);
+        Print("FAIL ", message, "\n");
+        QUIT_GAP(1);
     fi;
 end;;
 

@@ -98,6 +98,24 @@ z\longmapsto AzB^{-1}.
 Finally set $G_p=L\rtimes H\le \operatorname{GL}_5(p)$. Its order is
 $2^6p^8$. Both factors are soluble, so $G_p$ is soluble.
 
+### The literal matrices for $p=3$
+
+For the smallest example, all entries are in $\mathbb F_3$ and $-1=2$.
+Writing $e_{ij}=I_5+E_{ij}$, the group is
+
+\[
+G_3=\langle e_{13},e_{23},e_{34},e_{35},
+\operatorname{diag}(s,1,I_2),\operatorname{diag}(t,1,I_2),
+\operatorname{diag}(I_2,1,s),\operatorname{diag}(I_2,1,t)\rangle.
+\]
+
+The standalone file `G3-verification.g` writes these eight generators as
+literal $5\times5$ matrices. It imports no project code and uses no optional
+GAP package. Besides checking the order $419904$, it enumerates all conjugacy
+classes of maximal subgroups of $G_3$, $M_X$, $M_Y$, and $N$, prints every
+resulting index, verifies coverage by the named subgroups, and independently
+searches all admissible top-down branches for a monotone chain.
+
 Set $\bar X=XZ/Z$ and $\bar Y=YZ/Z$. As an $H$-module,
 
 \[
@@ -200,7 +218,13 @@ This contradiction proves that $G_p$ has no required chain.
 
 ## Computational check
 
-Run:
+For the self-contained $p=3$ certificate, run:
+
+~~~sh
+gap -A -q --quitonbreak G3-verification.g
+~~~
+
+For the complete family tests, run:
 
 ~~~sh
 ./src/run-gap.sh tests/counterexample.g

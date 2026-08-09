@@ -17,7 +17,7 @@ Maximal Chains in Finite Groups}
 \author[Richie Sater]{Richie Sater\,\orcidlink{0009-0007-9051-8207}}
 \address{Independent Researcher, United States}
 \email{richiesater@gmail.com}
-\date{August 8, 2026}
+\date{August 9, 2026}
 \subjclass[2020]{Primary 20D35; Secondary 20D10, 20C20}
 \keywords{finite groups, maximal chains, maximal-subgroup indices, soluble
 groups, semidirect products}
@@ -249,6 +249,54 @@ dimension $4$, so Lemma~\ref{lem:semidirect} applied to $N=Z\rtimes H$
 gives $\I(N)=\{2,p^4\}$.
 \end{proof}
 
+\section{The fully explicit group \texorpdfstring{$G_3$}{G3}}
+
+For ease of independent verification, we spell out the smallest example
+without parameters.  All entries in this paragraph lie in $\F_3$, so that
+$-1=2$.  Write $e_{ij}=I_5+E_{ij}$ and set
+\[
+ \begin{array}{ll}
+ a_s=\operatorname{diag}(s,1,I_2),&
+ a_t=\operatorname{diag}(t,1,I_2),\\
+ b_s=\operatorname{diag}(I_2,1,s),&
+ b_t=\operatorname{diag}(I_2,1,t).
+ \end{array}
+\]
+Then the concrete example is the following subgroup of
+$\operatorname{GL}_5(3)$:
+\begin{equation}\label{eq:explicit-g3}
+ G_3=\langle e_{13},e_{23},e_{34},e_{35},a_s,a_t,b_s,b_t\rangle.
+\end{equation}
+Define
+\[
+ \begin{split}
+ Z_3&=\langle e_{14},e_{15},e_{24},e_{25}\rangle,\\
+ H_3&=\langle a_s,a_t,b_s,b_t\rangle,\\
+ M_{X,3}&=\langle Z_3,e_{13},e_{23},H_3\rangle,\\
+ M_{Y,3}&=\langle Z_3,e_{34},e_{35},H_3\rangle,
+ \qquad N_3=\langle Z_3,H_3\rangle.
+ \end{split}
+\]
+Here $|H_3|=64$.  The orders and complete maximal-index spectra relevant to
+the obstruction are
+\[
+\begin{array}{c|c|c}
+ A&|A|&\I(A)\\ \hline
+ G_3&419904&\{2,9\}\\
+ M_{X,3},M_{Y,3}&46656&\{2,9,81\}\\
+ N_3&5184&\{2,81\}
+\end{array}
+\]
+The single, standalone file \texttt{G3-verification.g} accompanying this
+manuscript enters all eight generators in \eqref{eq:explicit-g3} as literal
+$5$-by-$5$ matrices.  Using only standard GAP commands, it checks the group
+and subgroup orders, the five named maximal inclusions, every
+maximal-subgroup conjugacy class and its index, coverage by the named
+subgroups, and an exhaustive top-down search for an increasing chain.  It
+has been run successfully, without modification, in GAP 4.11.1 and GAP
+4.16.0.  Thus the computation can be checked from the attached file without
+access to any online repository.
+
 \begin{proof}[Proof of Theorem~\ref{thm:main}]
 Suppose
 \[
@@ -276,11 +324,10 @@ $p=3$ these are
  \{2,9\},\qquad \{2,9,81\},\qquad \{2,81\},
 \]
 and an exhaustive branch search finds no admissible chain.  These
-computations corroborate, but are not needed for, the proof.  The code,
-tests, captured environments, and outputs are available in release
-\href{https://github.com/RichieSater/monotone-maximal-chains/releases/tag/v1.0.0}{v1.0.0}
-of the accompanying repository \cite{Repository}.  The certificate was
-reproduced under GAP 4.11.1 and GAP 4.16.0.
+computations corroborate, but are not needed for, the proof.  The standalone
+$p=3$ file, complete code, tests, and captured outputs are supplied directly
+with the manuscript during private review.  The certificate was reproduced
+under GAP 4.11.1 and GAP 4.16.0.
 \end{remark}
 
 \section*{Acknowledgements}
@@ -290,10 +337,11 @@ and Monakhov for communicating it by email.
 
 \section*{Code and data availability}
 
-The complete computational supplement is available in the public
-\href{https://github.com/RichieSater/monotone-maximal-chains}{verification
-repository}.  Release \texttt{v1.0.0} is the version corresponding to this
-manuscript.  Source code is licensed under the MIT License, and the manuscript
+During private review, the complete computational supplement is available
+directly from the author.  It includes the standalone
+\texttt{G3-verification.g} file and captured output from two GAP versions.
+The repository will be made publicly available with a citable release after
+review.  Source code is licensed under the MIT License, and the manuscript
 and documentation are licensed under CC BY 4.0.
 
 \section*{Declaration of generative AI and AI-assisted technologies}
@@ -319,12 +367,6 @@ V. S. Monakhov and I. L. Sokhor,
 \emph{On indices of maximal chains in finite groups},
 Results Math. \textbf{80} (2025), article 155.
 \href{https://doi.org/10.1007/s00025-025-02468-5}{doi:10.1007/s00025-025-02468-5}.
-
-\bibitem{Repository}
-R. Sater,
-\emph{Monotone maximal chains in finite groups: verification materials},
-version 1.0.0 (2026), GitHub repository,
-\url{https://github.com/RichieSater/monotone-maximal-chains/releases/tag/v1.0.0}.
 
 \end{thebibliography}
 

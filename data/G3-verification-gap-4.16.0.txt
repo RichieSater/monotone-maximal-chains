@@ -1,0 +1,18 @@
+# command=gap -A -q --quitonbreak G3-verification.g
+# runner=native
+# platform=Darwin-arm64
+GAP version: 4.16.0
+Construction: eight literal 5x5 generators over GF(3)
+PASS |G3|=419904 = 2^6*3^8
+PASS |MX|=|MY|=46656; |N|=5184; |H|=64
+PASS maximal-class index list for G3=[ 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 9, 9 ]
+PASS maximal-class index list for MX=[ 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 9, 81 ]
+PASS maximal-class index list for MY=[ 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 9, 81 ]
+PASS maximal-class index list for N=[ 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 81 ]
+PASS I(G3)=[ 2, 9 ]
+PASS I(MX)=[ 2, 9, 81 ]
+PASS I(MY)=[ 2, 9, 81 ]
+PASS I(N)=[ 2, 81 ]
+PASS all relevant conjugacy classes are covered by MX, MY, N, and H
+PASS increasing unrefinable chain exists: false
+ALL CHECKS PASSED

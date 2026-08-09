@@ -71,6 +71,13 @@ Multiplication is
 =\ell(x+x',y+y',z+z'+xy').
 \]
 
+With the convention $[a,b]=a^{-1}b^{-1}ab$, the commutator is
+
+\[
+[\ell(x,y,z),\ell(x',y',z')]
+=\ell(0,0,xy'-x'y).
+\]
+
 Thus $|L|=p^8$. Put
 
 \[

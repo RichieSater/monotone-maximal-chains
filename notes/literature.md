@@ -5,8 +5,8 @@
 - Victor S. Monakhov and Irina L. Sokhor, **On Indices of Maximal Chains in
   Finite Groups**, *Results in Mathematics* **80** (2025), article 155,
   DOI: [10.1007/s00025-025-02468-5](https://doi.org/10.1007/s00025-025-02468-5).
-  This paper introduces the `<`-chain and `>`-chain terminology used in the
-  question and studies groups with prescribed monotone chains.
+  This paper introduces the `(<)`-chain and `(>)`-chain terminology used in
+  the question and studies groups with prescribed monotone chains.
 
   The universal-existence question addressed in this repository is not
   attributed to that article. In an email to Richie Sater dated August 8,
@@ -53,6 +53,6 @@
 
 ## Access note
 
-The Results in Mathematics paper is closed access.  Only its publisher
-abstract and metadata were used.  The SEMR paper, Kohler paper/thesis, and
-arXiv paper are openly available from the linked primary sources.
+The terminology statement above was checked against the article text. The
+SEMR paper, Kohler paper/thesis, and arXiv paper are openly available from the
+linked primary sources.

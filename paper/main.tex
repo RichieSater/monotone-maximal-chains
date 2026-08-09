@@ -44,16 +44,17 @@ Let $G\neq 1$ be finite.  An unrefinable subgroup chain
   1=G_0<G_1<\cdots<G_n=G
 \]
 is one in which $G_{i-1}$ is maximal in $G_i$ for every $i$.  Associate to
-the chain the indices $j_i=[G_i:G_{i-1}]$.  Following Monakhov and Sokhor
-\cite{MS2025}, call the chain increasing if
+the chain the indices $j_i=[G_i:G_{i-1}]$.  We call the chain increasing if
 \[
   j_1\leq j_2\leq\cdots\leq j_n.
 \]
+In the terminology of Monakhov and Sokhor~\cite{MS2025}, this is a
+$(<)$-chain.
 In an email to the author dated August 8, 2026, V.~S.~Monakhov wrote that
-he and I.~L.~Sokhor proposed the following question.\footnote{This email is
-the source of the question.  Reference~\cite{MS2025} is cited for terminology
-and background, not as a published source of the universal-existence
-question.}
+he and I.~L.~Sokhor proposed the following question, stated here in equivalent
+terminology.\footnote{This email is the source of the question.
+Reference~\cite{MS2025} is cited for terminology and background, not as a
+published source of the universal-existence question.}
 \begin{quote}
 Does every finite group contain an increasing unrefinable subgroup chain?
 \end{quote}
@@ -138,6 +139,11 @@ Here the block sizes are $2,1,2$.  Direct multiplication gives
  \ell(x,y,z)\ell(x',y',z')
  =\ell(x+x',y+y',z+z'+xy').
 \end{equation}
+With the convention $[a,b]=a^{-1}b^{-1}ab$, it follows that
+\begin{equation}\label{eq:commutator}
+ [\ell(x,y,z),\ell(x',y',z')]
+ =\ell(0,0,xy'-x'y).
+\end{equation}
 Thus $|L|=p^8$.  Put
 \[
  Z=\{\ell(0,0,z)\},\quad
@@ -145,7 +151,7 @@ Thus $|L|=p^8$.  Put
  Y=\{\ell(0,y,0)\}.
 \]
 The group $Z$ is central in $L$.  The outer products $xy$ span
-$F^{2\times2}$, so \eqref{eq:mult} gives $L'=Z$.  Also $L$ has exponent
+$F^{2\times2}$, so \eqref{eq:commutator} gives $L'=Z$.  Also $L$ has exponent
 $p$: explicitly,
 \[
  \ell(x,y,z)^p
@@ -249,6 +255,26 @@ dimension $4$, so Lemma~\ref{lem:semidirect} applied to $N=Z\rtimes H$
 gives $\I(N)=\{2,p^4\}$.
 \end{proof}
 
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+Suppose
+\[
+ 1=G_0<G_1<\cdots<G_n=G_p
+\]
+is unrefinable and its indices $j_i=[G_i:G_{i-1}]$ are nondecreasing.
+By Lemma~\ref{lem:spectra}, $j_n\in\{2,p^2\}$.  We cannot have $j_n=2$:
+then every $j_i$ would be $2$, whereas $p$ divides $|G_p|$.  Thus
+$j_n=p^2$, and $G_{n-1}$ is conjugate to $M_X$ or $M_Y$.
+
+Now $j_{n-1}\leq p^2$.  The middle spectrum in
+Lemma~\ref{lem:spectra} shows that $j_{n-1}$ is $2$ or $p^2$.  It cannot be
+$2$, for the same order argument applied to $G_{n-1}$.  Hence
+$j_{n-1}=p^2$, and $G_{n-2}$ is conjugate to $N$.
+
+Finally, $j_{n-2}\leq p^2$, but $\I(N)=\{2,p^4\}$.  Therefore
+$j_{n-2}=2$.  This forces all preceding indices to equal $2$, impossible
+because $p$ divides $|N|$.  The contradiction proves the theorem.
+\end{proof}
+
 \section{The fully explicit group \texorpdfstring{$G_3$}{G3}}
 
 For ease of independent verification, we spell out the smallest example
@@ -297,26 +323,6 @@ has been run successfully, without modification, in GAP 4.11.1 and GAP
 4.16.0.  Thus the computation can be checked from the attached file without
 access to any online repository.
 
-\begin{proof}[Proof of Theorem~\ref{thm:main}]
-Suppose
-\[
- 1=G_0<G_1<\cdots<G_n=G_p
-\]
-is unrefinable and its indices $j_i=[G_i:G_{i-1}]$ are nondecreasing.
-By Lemma~\ref{lem:spectra}, $j_n\in\{2,p^2\}$.  We cannot have $j_n=2$:
-then every $j_i$ would be $2$, whereas $p$ divides $|G_p|$.  Thus
-$j_n=p^2$, and $G_{n-1}$ is conjugate to $M_X$ or $M_Y$.
-
-Now $j_{n-1}\leq p^2$.  The middle spectrum in
-Lemma~\ref{lem:spectra} shows that $j_{n-1}$ is $2$ or $p^2$.  It cannot be
-$2$, for the same order argument applied to $G_{n-1}$.  Hence
-$j_{n-1}=p^2$, and $G_{n-2}$ is conjugate to $N$.
-
-Finally, $j_{n-2}\leq p^2$, but $\I(N)=\{2,p^4\}$.  Therefore
-$j_{n-2}=2$.  This forces all preceding indices to equal $2$, impossible
-because $p$ divides $|N|$.  The contradiction proves the theorem.
-\end{proof}
-
 \begin{remark}\label{rem:computation}
 GAP computations for $p=3,5,7$ reproduce the predicted spectra; for
 $p=3$ these are
@@ -325,9 +331,10 @@ $p=3$ these are
 \]
 and an exhaustive branch search finds no admissible chain.  These
 computations corroborate, but are not needed for, the proof.  The standalone
-$p=3$ file, complete code, tests, and captured outputs are supplied directly
-with the manuscript during private review.  The certificate was reproduced
-under GAP 4.11.1 and GAP 4.16.0.
+$p=3$ file, complete code, tests, and captured outputs are publicly available
+in release \href{https://github.com/RichieSater/monotone-maximal-chains/releases/tag/v1.1.0}{v1.1.0}
+of the accompanying repository~\cite{Repository}.  The certificate was
+reproduced under GAP 4.11.1 and GAP 4.16.0.
 \end{remark}
 
 \section*{Acknowledgements}
@@ -337,12 +344,12 @@ and Monakhov for communicating it by email.
 
 \section*{Code and data availability}
 
-During private review, the complete computational supplement is available
-directly from the author.  It includes the standalone
-\texttt{G3-verification.g} file and captured output from two GAP versions.
-The repository will be made publicly available with a citable release after
-review.  Source code is licensed under the MIT License, and the manuscript
-and documentation are licensed under CC BY 4.0.
+The complete computational supplement is publicly available in the
+\href{https://github.com/RichieSater/monotone-maximal-chains}{verification
+repository}.  Release \texttt{v1.1.0} is the version corresponding to this
+manuscript.  It includes the standalone verifier and captured output from
+GAP 4.11.1 and GAP 4.16.0.  Source code is licensed under the MIT License,
+and the manuscript and documentation are licensed under CC BY 4.0.
 
 \section*{Declaration of generative AI and AI-assisted technologies}
 
@@ -367,6 +374,12 @@ V. S. Monakhov and I. L. Sokhor,
 \emph{On indices of maximal chains in finite groups},
 Results Math. \textbf{80} (2025), article 155.
 \href{https://doi.org/10.1007/s00025-025-02468-5}{doi:10.1007/s00025-025-02468-5}.
+
+\bibitem{Repository}
+R. Sater,
+\emph{Monotone maximal chains in finite groups: paper and verification
+materials}, version 1.1.0 (2026), GitHub repository,
+\url{https://github.com/RichieSater/monotone-maximal-chains/releases/tag/v1.1.0}.
 
 \end{thebibliography}
 

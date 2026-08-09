@@ -16,7 +16,8 @@ such that:
 2. the upward indices \(a_i=[G_i:G_{i-1}]\) satisfy
    \(a_1\le a_2\le\cdots\le a_n\)?
 
-We call such a chain a **monotone maximal chain** (MMC).
+Monakhov and Sokhor call such a chain a **`(<)`-chain**. This repository also
+uses the descriptive term **monotone maximal chain** (MMC).
 
 ## Resolution
 

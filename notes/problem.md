@@ -1,8 +1,10 @@
 # Problem statement and conventions
 
-The canonical source is Victor Monakhov's email to Richie Sater dated
-August 8, 2026, in which Monakhov wrote that he and Irina Sokhor proposed
-the problem. See [`question-provenance.md`](question-provenance.md).
+The documented source through which Richie Sater learned of the question is
+correspondence with Victor Monakhov and Irina Sokhor beginning on August 8,
+2026. This records the transmission of the question and does not assert
+priority for its original formulation. See
+[`question-provenance.md`](question-provenance.md).
 
 ## Problem
 

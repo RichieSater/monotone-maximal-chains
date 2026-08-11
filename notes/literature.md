@@ -9,9 +9,11 @@
   the question and studies groups with prescribed monotone chains.
 
   The universal-existence question addressed in this repository is not
-  attributed to that article. In an email to Richie Sater dated August 8,
-  2026, Monakhov wrote that he and Sokhor proposed the question; the article
-  supplies the surrounding terminology and background.
+  attributed to that article. It was communicated to Richie Sater during
+  correspondence with Monakhov and Sokhor beginning on August 8, 2026. This
+  records how Sater learned of the question, not priority for its original
+  formulation; the article supplies the surrounding terminology and
+  background.
 
 - Victor S. Monakhov and Irina L. Sokhor, **To the Iwasawa and Huppert
   Theorems on Supersolvability of Finite Groups**, *Siberian Electronic

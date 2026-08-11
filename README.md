@@ -3,8 +3,9 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21878836.svg)](https://doi.org/10.5281/zenodo.21878836)
 
 This repository contains a five-page mathematical note and reproducible GAP
-certificates for a negative answer to the Monakhov–Sokhor question on
-increasing unrefinable subgroup chains.
+certificates for a negative answer to a question on increasing unrefinable
+subgroup chains communicated to the author during correspondence with
+V. S. Monakhov and I. L. Sokhor.
 
 For every odd prime `p`, the note constructs a soluble matrix group
 `G_p <= GL_5(p)` of order `2^6 p^8` with no unrefinable subgroup chain whose

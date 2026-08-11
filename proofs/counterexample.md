@@ -2,10 +2,10 @@
 
 ## Result
 
-The answer to Monakhov and Sokhor's question, communicated to Richie Sater
-by Monakhov's email of August 8, 2026, is **no**. For every odd
-prime $p$, the group $G_p$ constructed below has no unrefinable subgroup
-chain with nondecreasing indices. The smallest member, $G_3$, has order
+The answer to the question communicated to Richie Sater during correspondence
+with Victor Monakhov and Irina Sokhor beginning on August 8, 2026, is **no**.
+For every odd prime $p$, the group $G_p$ constructed below has no unrefinable
+subgroup chain with nondecreasing indices. The smallest member, $G_3$, has order
 
 \[
 |G_3|=2^6 3^8=419904.

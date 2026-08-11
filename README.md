@@ -1,4 +1,4 @@
-# A Negative Answer to a Question on Monotone Maximal Chains in Finite Groups
+# Finite Soluble Groups Need Not Admit Increasing Unrefinable Subgroup Chains
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21878836.svg)](https://doi.org/10.5281/zenodo.21878836)
 

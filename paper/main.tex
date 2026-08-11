@@ -24,70 +24,71 @@ groups, semidirect products}
 
 \begin{document}
 \begin{abstract}
-In an email dated August 8, 2026, V.~S.~Monakhov communicated a question
-proposed jointly with I.~L.~Sokhor: whether every finite group has an
-unrefinable subgroup chain whose successive indices are nondecreasing.  We
-give a negative answer, even among soluble groups.  For every odd prime
-$p$, we construct a soluble matrix group
+In an email dated August 8, 2026, V.~S.~Monakhov communicated the following
+question, which he had formulated with I.~L.~Sokhor: does every finite group
+have an unrefinable chain of subgroups whose successive indices are
+nondecreasing?
+We answer this question in the negative, even among soluble groups.  For
+every odd prime $p$, we construct a soluble matrix group
 $G_p\leq \operatorname{GL}_5(p)$ of order $2^6p^8$ with no such chain.
-Thus the counterexamples form an infinite family; its smallest member,
-$G_3$, has order $419904$.  The construction is modeled on an example of
-Kohler, and the obstruction follows from three elementary maximal-subgroup
-calculations.
+These counterexamples form an infinite family whose smallest member,
+$G_3$, has order $419904$.  The construction is based on an example due to
+Kohler, and the obstruction follows from three elementary calculations of
+maximal-subgroup indices.
 \end{abstract}
 \maketitle
 
 \section{Introduction}
 
-Let $G\neq 1$ be finite.  An unrefinable subgroup chain
+Let $G$ be a nontrivial finite group.  An unrefinable chain of subgroups
 \[
   1=G_0<G_1<\cdots<G_n=G
 \]
-is one in which $G_{i-1}$ is maximal in $G_i$ for every $i$.  Associate to
-the chain the indices $j_i=[G_i:G_{i-1}]$.  We call the chain increasing if
+is one in which $G_{i-1}$ is maximal in $G_i$ for every $i$.  Associate
+with this chain the indices $j_i=\lvert G_i:G_{i-1}\rvert$.  We call the
+chain increasing if
 \[
   j_1\leq j_2\leq\cdots\leq j_n.
 \]
-In the terminology of Monakhov and Sokhor~\cite{MS2025}, this is a
-$(<)$-chain.
-In an email to the author dated August 8, 2026, V.~S.~Monakhov wrote that
-he and I.~L.~Sokhor proposed the following question, stated here in equivalent
-terminology.\footnote{This email is the source of the question.
-Reference~\cite{MS2025} is cited for terminology and background, not as a
-published source of the universal-existence question.}
+Monakhov and Sokhor call such a chain a $(<)$-chain~\cite{MS2025}.
+In an email dated August 8, 2026, V.~S.~Monakhov informed the author that
+he and I.~L.~Sokhor had formulated the following question, which we state
+in equivalent terminology.\footnote{This email is the source from which the
+author learned of the question.  Reference~\cite{MS2025} is cited for
+terminology and background, not as a published source of the
+universal-existence question.}
 \begin{quote}
 Does every finite group contain an increasing unrefinable subgroup chain?
 \end{quote}
-We prove the following negative answer.
+We answer this question in the negative.
 
 \begin{theorem}\label{thm:main}
 For every odd prime $p$, there is a soluble group $G_p$ of order $2^6p^8$
 which has no increasing unrefinable subgroup chain.
 \end{theorem}
 
-The smallest group in the family has order
-$2^6 3^8=419904$; no claim of global minimality is made.  Our construction
-is modeled on the $t=2$ case of Kohler's work on maximal-subgroup indices
-\cite{Kohler1964}.  Kohler used his construction to show that a group whose
-maximal subgroups have prime or prime-square index can contain subgroups
-with arbitrarily large maximal-subgroup index.  In the matrix model below,
-the four coordinates in $x$ and $y$ play the role of four degree-one
-generators, while the four coordinates in $z$ are the independent
-cross-commutator coordinates; consequently the associated $p$-group has order
-$p^{4+4}=p^8$.  Here we use the nested index pattern itself.
+The smallest group in the family has order $2^6 3^8=419904$.  We do not
+claim that it is the smallest counterexample.  Our construction is based on
+the $t=2$ case of Kohler's work on maximal-subgroup indices
+\cite{Kohler1964}.  Kohler used this construction to show that bounds on
+the indices of maximal subgroups of a finite group need not be inherited by
+its subgroups.  In the matrix model below, the four coordinates occurring in
+$x$ and $y$ correspond to four degree-one generators, while the four
+entries of $z$ record the independent cross-commutators.  The resulting
+$p$-group therefore has order $p^{4+4}=p^8$.  We exploit the resulting
+nested pattern of maximal-subgroup indices.
 
 \section{A lemma on maximal subgroups}
 
 For a finite group $A$, write
 \[
-  \I(A)=\{[A:B]:B\text{ is maximal in }A\}.
+  \I(A)=\{\lvert A:B\rvert \mid B\text{ is maximal in }A\}.
 \]
 
 \begin{lemma}\label{lem:semidirect}
 Let $V$ be an elementary abelian $p$-group, let $H$ be a $p'$-group acting
 on $V$, put $K=V\rtimes H$, and let $\pi:K\to H$ be the natural
-projection.  Every maximal subgroup of $K$ is of one of the following
-forms:
+projection.  Every maximal subgroup of $K$ has one of the following forms:
 \begin{enumerate}
 \item $\pi^{-1}(J)=V\rtimes J$, where $J$ is maximal in $H$;
 \item a $V$-conjugate of $W\rtimes H$, where $W$ is a maximal proper
@@ -96,18 +97,20 @@ forms:
 \end{lemma}
 
 \begin{proof}
-Let $T$ be maximal in $K$.  If $V\leq T$, the claim follows on passing to
-$K/V\cong H$.  Suppose $V\nleq T$.  Then $VT=K$.  Put $W=V\cap T$.
-The group $T$ normalizes $W$, while $V$ centralizes it, so $W\lhd K$.
-In $K/W$, the groups $T/W$ and $WH/W$ are complements to $V/W$.
-Schur--Zassenhaus makes these complements conjugate by an element of $V/W$.
-Thus $T$ is $V$-conjugate to $W\rtimes H$, and maximality of $T$ is
-equivalent to maximality of $W$ among proper $H$-submodules of $V$.
+Let $T$ be maximal in $K$.  If $V\leq T$, then $T/V$ is maximal in
+$K/V\cong H$, which gives the first form.  Suppose $V\nleq T$.  Then
+$VT=K$.  Put $W=V\cap T$.
+The group $T$ normalizes $W$, while $V$ centralizes $W$; hence $W\lhd K$.
+In $K/W$, both $T/W$ and $WH/W$ are complements to $V/W$.  By the
+Schur--Zassenhaus theorem, these complements are conjugate by an element of
+$V/W$.  Lifting this conjugacy shows that $T$ is $V$-conjugate to
+$W\rtimes H$.  Moreover, maximality of $T$ is equivalent to maximality of
+$W$ among the proper $H$-submodules of $V$.
 \end{proof}
 
-In particular, if $H$ is a $2$-group, subgroups of the first type have
-index $2$.  If $V$ is completely reducible, subgroups of the second type
-have indices equal to the orders of the irreducible quotients of $V$.
+In particular, if $H$ is a $2$-group, the subgroups of the first type have
+index $2$.  If $V$ is completely reducible, the indices of the subgroups of
+the second type are the orders of the irreducible quotients of $V$.
 
 \section{The counterexample family}
 
@@ -118,9 +121,9 @@ Fix an odd prime $p$ and put $F=\F_p$.  Let
  D=\langle s,t\rangle\leq\operatorname{GL}_2(F).
 \]
 Then $D\cong D_8$, where $D_8$ has order $8$.  The natural $FD$-module
-$U=F^2$ is absolutely irreducible.  Indeed, over an algebraic closure the
-only $t$-invariant lines are the two coordinate lines, and $s$ interchanges
-them.
+$U=F^2$ is absolutely irreducible.  Indeed, after extending scalars to an
+algebraic closure, the only $t$-invariant lines are the two coordinate
+lines, and $s$ interchanges them.
 
 Let $H=D\times D$.  Define
 \[
@@ -130,11 +133,11 @@ Let $H=D\times D$.  Define
  I_2&x&z\\
  0&1&y\\
  0&0&I_2
- \end{pmatrix}:
+ \end{pmatrix}\mathrel{:}
  x\in F^{2\times1},\ y\in F^{1\times2},\ z\in F^{2\times2}
  \right\}.
 \]
-Here the block sizes are $2,1,2$.  Direct multiplication gives
+Here the block sizes are $2,1,2$.  Direct multiplication yields
 \begin{equation}\label{eq:mult}
  \ell(x,y,z)\ell(x',y',z')
  =\ell(x+x',y+y',z+z'+xy').
@@ -144,37 +147,38 @@ With the convention $[a,b]=a^{-1}b^{-1}ab$, it follows that
  [\ell(x,y,z),\ell(x',y',z')]
  =\ell(0,0,xy'-x'y).
 \end{equation}
-Thus $|L|=p^8$.  Put
+Thus $\lvert L\rvert=p^8$.  Put
 \[
  Z=\{\ell(0,0,z)\},\quad
  X=\{\ell(x,0,0)\},\quad
  Y=\{\ell(0,y,0)\}.
 \]
 The group $Z$ is central in $L$.  The outer products $xy$ span
-$F^{2\times2}$, so \eqref{eq:commutator} gives $L'=Z$.  Also $L$ has exponent
-$p$: explicitly,
+$F^{2\times2}$, so \eqref{eq:commutator} gives $L'=Z$.  Since $p$ is odd,
+$L$ has exponent $p$; explicitly,
 \[
  \ell(x,y,z)^p
  =\ell\left(0,0,pz+\binom p2xy\right)=1.
 \]
-The standard Frattini formula for a finite $p$-group (equivalently, the
-Burnside basis theorem) now gives
+The standard formula for the Frattini subgroup of a finite $p$-group now
+gives
 \begin{equation}\label{eq:frattini}
  \Phi(L)=L^pL'=Z.
 \end{equation}
 
-Embed $H$ in $\operatorname{GL}_5(F)$ through the block-diagonal matrices
-$\operatorname{diag}(A,1,B)$, with $A,B\in D$.  Conjugation acts by
+Embed $H$ in $\operatorname{GL}_5(F)$ by identifying $(A,B)\in D\times D$
+with the block-diagonal matrix $\operatorname{diag}(A,1,B)$.  Conjugation
+by this matrix acts by
 \[
  x\mapsto Ax,\qquad y\mapsto yB^{-1},\qquad z\mapsto AzB^{-1}.
 \]
-It therefore normalizes both $L$ and $Z$, so in particular $Z\lhd G_p$
-for the group
+Consequently, $H$ normalizes both $L$ and $Z$.  Define
 \[
  G_p=L\rtimes H\leq\operatorname{GL}_5(p).
 \]
-We have $|G_p|=p^8\cdot 8^2=2^6p^8$.  Both $L$ and $H$ are soluble, so
-$G_p$ is soluble.
+Then $Z\lhd G_p$ and
+$\lvert G_p\rvert=p^8\cdot 8^2=2^6p^8$.  Since both $L$ and $H$ are
+soluble, so is $G_p$.
 
 Set $\overline X=XZ/Z$ and $\overline Y=YZ/Z$.  As an $H$-module,
 \begin{equation}\label{eq:modules}
@@ -182,32 +186,31 @@ Set $\overline X=XZ/Z$ and $\overline Y=YZ/Z$.  As an $H$-module,
 \end{equation}
 where $\overline X$ and $\overline Y$ are nonisomorphic irreducible modules
 of dimension $2$.  More explicitly, the first factor of $D\times D$ acts
-naturally on $\overline X$ and the second acts trivially, while the second
-factor acts naturally and dually on $\overline Y$ and the first acts
-trivially.  Thus
+naturally on $\overline X$, while the second acts trivially.  The second
+factor acts dually on $\overline Y$, while the first acts trivially.  Thus
 \[
- \ker_H(\overline X)=1\times D,
+ C_H(\overline X)=1\times D,
  \qquad
- \ker_H(\overline Y)=D\times 1,
+ C_H(\overline Y)=D\times 1.
 \]
-which also proves that the two modules are nonisomorphic.  Since
-$p\nmid |H|=64$, Maschke's theorem applies.  Hence the only maximal
-$H$-submodules of $L/Z$ are $\overline X$ and $\overline Y$.
+These action kernels also show that the two modules are nonisomorphic.
+Since $p\nmid \lvert H\rvert=64$, Maschke's theorem applies.  Hence the
+only maximal $H$-submodules of $L/Z$ are $\overline X$ and $\overline Y$.
 
 Moreover,
 \begin{equation}\label{eq:tensor}
  Z\cong U\boxtimes U^*
 \end{equation}
 is the external tensor product for the two direct factors of $H$.  Hence
-$Z$ is an irreducible $H$-module of dimension $4$: over an algebraic
-closure $\overline F$, both $U_{\overline F}$ and
-$U^*_{\overline F}$ remain irreducible, and their external tensor product
-is irreducible for $D\times D$.
+$Z$ is an irreducible $H$-module of dimension $4$.  Indeed, over an
+algebraic closure $\overline F$, both $U\otimes_F\overline F$ and
+$U^*\otimes_F\overline F$ remain irreducible, and their external tensor
+product is irreducible for $D\times D$.
 
 \section{The index obstruction}
 
 \begin{lemma}\label{lem:spectra}
-The following maximal-index spectra occur:
+The maximal-index spectra are
 \begin{align*}
  \I(G_p)&=\{2,p^2\},\\
  \I(M_X)=\I(M_Y)&=\{2,p^2,p^4\},\\
@@ -219,37 +222,40 @@ where
  M_Y=(Z\times Y)\rtimes H,\qquad
  N=Z\rtimes H.
 \]
-Every maximal subgroup of $G_p$ of index $p^2$ is conjugate to $M_X$ or
-$M_Y$.  Every maximal subgroup of $M_X$ or $M_Y$ of index $p^2$ is
-conjugate to $N$.
+Every maximal subgroup of $G_p$ of index $p^2$ is $G_p$-conjugate to $M_X$
+or $M_Y$.  Every maximal subgroup of $M_X$ of index $p^2$ is
+$M_X$-conjugate to $N$, and every maximal subgroup of $M_Y$ of index $p^2$
+is $M_Y$-conjugate to $N$.
 \end{lemma}
 
 \begin{proof}
-First, every maximal subgroup $M$ of $G_p$ contains $Z$.  If not, then
-$G_p=ZM$, and the modular law and \eqref{eq:frattini} give
+First, we show that every maximal subgroup $M$ of $G_p$ contains $Z$.  If
+$Z\nleq M$, then maximality gives $G_p=ZM$, and the modular law together
+with \eqref{eq:frattini} gives
 \[
  L=L\cap ZM=Z(L\cap M)=\Phi(L)(L\cap M).
 \]
-Recall the Frattini fact that $L=\Phi(L)K$ for a subgroup $K\leq L$
-implies $K=L$: otherwise a maximal subgroup of $L$ containing $K$ would
-also contain $\Phi(L)$ and hence $L$.  Applying this with $K=L\cap M$
-forces $L\cap M=L$, which contradicts $Z\nleq M$.
+Recall the standard Frattini fact that $L=\Phi(L)K$ for a subgroup $K\leq L$
+implies $K=L$: otherwise, a maximal subgroup of $L$ containing $K$ would
+contain both $K$ and $\Phi(L)$, and hence all of $L$, a contradiction.
+Applying this fact with $K=L\cap M$ forces $L\cap M=L$, so $Z\leq M$,
+again a contradiction.
 
 It follows that the maximal subgroups of $G_p$ are the inverse images of
 the maximal subgroups of
 \[
  G_p/Z=(\overline X\oplus\overline Y)\rtimes H.
 \]
-Apply Lemma~\ref{lem:semidirect} and \eqref{eq:modules}.  Maximal subgroups
-coming from $H$ have index $2$, and those coming from either irreducible
-summand have index $p^2$.  This proves the first spectrum and the assertion
-about $M_X,M_Y$.
+Apply Lemma~\ref{lem:semidirect} and \eqref{eq:modules}.  The maximal
+subgroups of the first type have index $2$, while those of the second type
+have index $p^2$.  This proves the first equality and the assertion
+concerning $M_X$ and $M_Y$.
 
-In $M_X$, the normal elementary abelian subgroup $Z\times X$ is a direct
+In $M_X$, the normal elementary abelian subgroup $Z\times X$ is the direct
 sum of nonisomorphic irreducible $H$-modules of dimensions $4$ and $2$.
-Its only maximal $H$-submodules are therefore its two summands.  Another
-application of Lemma~\ref{lem:semidirect} gives indices $2,p^2,p^4$; the
-index-$p^2$ case removes the $X$ summand and gives a conjugate of $N$.
+Its only maximal $H$-submodules are therefore $Z$ and $X$.  Another
+application of Lemma~\ref{lem:semidirect} gives the indices $2,p^2,p^4$;
+the index-$p^2$ case retains $Z$ and gives an $M_X$-conjugate of $N$.
 The same argument applies to $M_Y$.  Finally, $Z$ is irreducible of
 dimension $4$, so Lemma~\ref{lem:semidirect} applied to $N=Z\rtimes H$
 gives $\I(N)=\{2,p^4\}$.
@@ -260,26 +266,30 @@ Suppose
 \[
  1=G_0<G_1<\cdots<G_n=G_p
 \]
-is unrefinable and its indices $j_i=[G_i:G_{i-1}]$ are nondecreasing.
+is unrefinable and its indices $j_i=\lvert G_i:G_{i-1}\rvert$ are
+nondecreasing.
 By Lemma~\ref{lem:spectra}, $j_n\in\{2,p^2\}$.  We cannot have $j_n=2$:
-then every $j_i$ would be $2$, whereas $p$ divides $|G_p|$.  Thus
-$j_n=p^2$, and $G_{n-1}$ is conjugate to $M_X$ or $M_Y$.
+then monotonicity would force every $j_i$ to be $2$, whereas
+$p\mid\lvert G_p\rvert$.  Thus $j_n=p^2$, and $G_{n-1}$ is
+$G_p$-conjugate to $M_X$ or $M_Y$.
 
 Now $j_{n-1}\leq p^2$.  The middle spectrum in
 Lemma~\ref{lem:spectra} shows that $j_{n-1}$ is $2$ or $p^2$.  It cannot be
-$2$, for the same order argument applied to $G_{n-1}$.  Hence
-$j_{n-1}=p^2$, and $G_{n-2}$ is conjugate to $N$.
+$2$, by the same divisibility argument applied to $G_{n-1}$.  Hence
+$j_{n-1}=p^2$, and $G_{n-2}$ is $G_p$-conjugate to $N$.
 
-Finally, $j_{n-2}\leq p^2$, but $\I(N)=\{2,p^4\}$.  Therefore
-$j_{n-2}=2$.  This forces all preceding indices to equal $2$, impossible
-because $p$ divides $|N|$.  The contradiction proves the theorem.
+Finally, $j_{n-2}\leq p^2$.  Since $G_{n-2}$ is $G_p$-conjugate to $N$ and
+$\I(N)=\{2,p^4\}$, we must have $j_{n-2}=2$.  This forces all preceding
+indices to equal $2$, which is impossible because $p\mid\lvert N\rvert$.
+The contradiction proves the theorem.
 \end{proof}
 
 \section{The fully explicit group \texorpdfstring{$G_3$}{G3}}
 
-For ease of independent verification, we spell out the smallest example
-without parameters.  All entries in this paragraph lie in $\F_3$, so that
-$-1=2$.  Write $e_{ij}=I_5+E_{ij}$ and set
+To facilitate independent verification, we give the smallest member of the
+family without parameters.  All matrices below are over $\F_3$, so $-1=2$.
+Let $E_{ij}$ denote the standard matrix unit, write
+$e_{ij}=I_5+E_{ij}$, and set
 \[
  \begin{array}{ll}
  a_s=\operatorname{diag}(s,1,I_2),&
@@ -303,51 +313,52 @@ Define
  \qquad N_3=\langle Z_3,H_3\rangle.
  \end{split}
 \]
-Here $|H_3|=64$.  The orders and complete maximal-index spectra relevant to
-the obstruction are
+Here $\lvert H_3\rvert=64$.  The orders and complete maximal-index spectra
+relevant to the obstruction are
 \[
 \begin{array}{c|c|c}
- A&|A|&\I(A)\\ \hline
+ A&\lvert A\rvert&\I(A)\\ \hline
  G_3&419904&\{2,9\}\\
  M_{X,3},M_{Y,3}&46656&\{2,9,81\}\\
  N_3&5184&\{2,81\}
 \end{array}
 \]
-The single, standalone file \texttt{G3-verification.g} accompanying this
-manuscript enters all eight generators in \eqref{eq:explicit-g3} as literal
-$5$-by-$5$ matrices.  Using only standard GAP commands, it checks the group
-and subgroup orders, the five named maximal inclusions, every
-maximal-subgroup conjugacy class and its index, coverage by the named
-subgroups, and an exhaustive top-down search for an increasing chain.  It
-has been run successfully, without modification, in GAP 4.11.1 and GAP
-4.16.0.  Thus the computation can be checked from the attached file without
-access to any online repository.
+The standalone file \texttt{G3-verification.g} accompanying this manuscript
+defines all eight generators in \eqref{eq:explicit-g3} as explicit
+$5\times5$ matrices.  Using only standard GAP commands, it verifies the
+group and subgroup orders, the five named maximal inclusions, every
+conjugacy class of maximal subgroups and its index, the coverage of all
+relevant classes by the named subgroups, and the result of an exhaustive
+top-down search for an increasing chain.  The file has been run unchanged
+under GAP 4.11.1 and GAP 4.16.0.
+Thus the computation can be checked from the attached file without access
+to an online repository.
 
 \begin{remark}\label{rem:computation}
-GAP computations for $p=3,5,7$ reproduce the predicted spectra; for
+GAP computations for $p=3,5,7$ confirm the predicted spectra; for
 $p=3$ these are
 \[
  \{2,9\},\qquad \{2,9,81\},\qquad \{2,81\},
 \]
-and an exhaustive branch search finds no admissible chain.  These
-computations corroborate, but are not needed for, the proof.  The standalone
-$p=3$ file, complete code, tests, and captured outputs are publicly available
-in release \href{https://github.com/RichieSater/monotone-maximal-chains/releases/tag/v1.1.0}{v1.1.0}
-of the accompanying repository~\cite{Repository}.  The certificate was
-reproduced under GAP 4.11.1 and GAP 4.16.0.
+and an exhaustive branch search finds no increasing unrefinable chain.  These
+computations corroborate the theorem but are not used in its proof.  The
+standalone $p=3$ file, complete code, tests, and captured outputs are
+publicly available in release
+\href{https://github.com/RichieSater/monotone-maximal-chains/releases/tag/v1.1.0}{v1.1.0}
+of the accompanying repository~\cite{Repository}.
 \end{remark}
 
-\section*{Acknowledgements}
+\section*{Acknowledgments}
 
-The author thanks V.~S.~Monakhov and I.~L.~Sokhor for posing the question,
-and Monakhov for communicating it by email.
+The author thanks V.~S.~Monakhov and I.~L.~Sokhor for bringing the question
+to his attention.  He also thanks Monakhov for communicating it by email.
 
 \section*{Code and data availability}
 
 The complete computational supplement is publicly available in the
 \href{https://github.com/RichieSater/monotone-maximal-chains}{verification
 repository}.  Release \texttt{v1.1.0} is the version corresponding to this
-manuscript.  It includes the standalone verifier and captured output from
+manuscript.  It includes the standalone verifier and captured outputs from
 GAP 4.11.1 and GAP 4.16.0.  Source code is licensed under the MIT License,
 and the manuscript and documentation are licensed under CC BY 4.0.
 
@@ -356,9 +367,9 @@ and the manuscript and documentation are licensed under CC BY 4.0.
 During this project the author used Anthropic's Claude and OpenAI Codex for
 mathematical exploration and criticism, literature-search assistance,
 drafting and debugging GAP code, and manuscript organization and editing.
-The author checked the mathematical argument, reran the committed tests, and
-verified the cited references, and takes full responsibility for the content
-of the article.
+The author independently checked the mathematical argument, reran all tests
+in the repository, and verified the cited references.  He takes full
+responsibility for the content of the article.
 
 \begin{thebibliography}{9}
 

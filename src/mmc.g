@@ -3,12 +3,12 @@
 # An MMC is an unrefinable chain 1 = G_0 < ... < G_n = G whose
 # upward indices are nondecreasing.  The key dynamic-programming invariant is
 #
-#   MMCLast(G) = the least possible last index [G:G_{n-1}] of an MMC in G,
+#   MMCLast(G) = the least possible last index |G:G_{n-1}| of an MMC in G,
 #
 # with value 0 if no MMC exists and MMCLast(1) = 1.  Then
 #
-#   MMCLast(G) = min { [G:M] : M maximal in G,
-#                              MMCLast(M) <= [G:M] }.
+#   MMCLast(G) = min { |G:M| : M maximal in G,
+#                              MMCLast(M) <= |G:M| }.
 #
 # Conjugate maximal subgroups have the same value, so class representatives
 # suffice.  The cache is indexed by IdGroup and is therefore intended for
@@ -159,7 +159,7 @@ end;
 
 # A branch-and-bound witness search.  Read from the top down, a monotone
 # chain has nonincreasing edge labels.  Thus `bound` is the largest permitted
-# value of [G:M] at the current node.  Unlike MMCWitness, this routine rejects
+# value of |G:M| at the current node.  Unlike MMCWitness, this routine rejects
 # inadmissible top edges before recursing, which is essential for constructed
 # groups outside the Small Groups library.
 MMCThresholdWitness := function(G, bound)

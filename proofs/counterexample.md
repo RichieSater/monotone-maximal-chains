@@ -207,7 +207,7 @@ Suppose
 1=G_0<G_1<\cdots<G_n=G_p
 \]
 
-were unrefinable, with $j_i=[G_i:G_{i-1}]$ nondecreasing.
+were unrefinable, with $j_i=\lvert G_i:G_{i-1}\rvert$ nondecreasing.
 
 The last index belongs to $\{2,p^2\}$. It cannot be $2$, since then all
 the $j_i$ would equal $2$, whereas $p\mid |G_p|$. Hence $j_n=p^2$,

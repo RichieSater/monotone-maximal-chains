@@ -12,5 +12,5 @@ priority.
 
 Monakhov and Sokhor's 2025 article, *On Indices of Maximal Chains in Finite
 Groups*, calls a maximal chain with nondecreasing successive indices a
-`(<)`-chain. The article is cited for this terminology and the surrounding
+`<`-chain. The article is cited for this terminology and the surrounding
 background, not as a published source of the universal-existence question.

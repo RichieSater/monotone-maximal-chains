@@ -1,8 +1,8 @@
 cff-version: 1.2.0
 message: >-
-  If you use the theorem, construction, or verification materials, please
-  cite this repository release and the accompanying paper.
-title: "Monotone maximal chains in finite groups: paper and verification materials"
+  This file describes the archived version 1.1.0 preprint and verification
+  materials. It does not describe the current working manuscript.
+title: "A Negative Answer to a Question on Monotone Maximal Chains in Finite Groups"
 type: software
 version: 1.1.0
 date-released: 2026-08-09
@@ -22,7 +22,7 @@ keywords:
   - GAP
 preferred-citation:
   type: article
-  title: "Finite soluble groups need not admit increasing unrefinable subgroup chains"
+  title: "A Negative Answer to a Question on Monotone Maximal Chains in Finite Groups"
   authors:
     - family-names: Sater
       given-names: Richie

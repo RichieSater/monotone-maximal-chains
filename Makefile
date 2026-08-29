@@ -1,6 +1,23 @@
-.PHONY: test counterexample g3-verification smoke mmc-crosscheck certificates paper clean-paper
+.PHONY: test public-corpus public-corpus-mutation output-capture-test paper-sync counterexample g3-verification smoke mmc-crosscheck outputs paper clean-paper
 
-test: smoke mmc-crosscheck counterexample g3-verification
+# Stable manuscript timestamp: 2026-08-29 00:00:00 UTC.
+SOURCE_DATE_EPOCH ?= 1787961600
+TECTONIC ?= tectonic
+
+test: public-corpus public-corpus-mutation output-capture-test paper-sync smoke mmc-crosscheck counterexample g3-verification
+
+public-corpus:
+	python3 scripts/public_corpus.py
+
+public-corpus-mutation:
+	python3 -m unittest tests/test_public_corpus.py
+
+output-capture-test:
+	python3 -m unittest tests/test_capture_outputs.py
+
+paper-sync:
+	SOURCE_DATE_EPOCH="$(SOURCE_DATE_EPOCH)" TECTONIC="$(TECTONIC)" \
+		python3 scripts/check_pdf_sync.py
 
 counterexample:
 	./src/run-gap.sh tests/counterexample.g
@@ -14,12 +31,13 @@ smoke:
 mmc-crosscheck:
 	./src/run-gap.sh tests/mmc-crosscheck.g
 
-certificates:
-	./src/capture-certificates.sh
+outputs:
+	./src/capture-outputs.sh
 
 paper:
 	mkdir -p paper/build
-	tectonic -X compile paper/main.tex --outdir paper/build
+	SOURCE_DATE_EPOCH="$(SOURCE_DATE_EPOCH)" FORCE_SOURCE_DATE=1 TZ=UTC \
+		$(TECTONIC) -X compile paper/main.tex --outdir paper/build
 	cp paper/build/main.pdf paper/main.pdf
 
 clean-paper:

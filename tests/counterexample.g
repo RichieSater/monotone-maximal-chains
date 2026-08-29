@@ -50,7 +50,7 @@ CheckCounterexample := function(p)
     Check(Index(n, h) = p^4,
           Concatenation("H has wrong index in N", label));
 
-    # Empty intermediate-subgroup lists directly certify maximality of the
+    # Empty intermediate-subgroup lists directly verify maximality of the
     # five named inclusions.
     Check(Length(IntermediateSubgroups(g, mx).subgroups) = 0,
           Concatenation("Mx is not maximal in G", label));

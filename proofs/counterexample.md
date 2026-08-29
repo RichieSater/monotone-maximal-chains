@@ -1,247 +1,67 @@
-# An infinite family of counterexamples
+# Proof and dependency map
 
-## Result
+The canonical statement and proof are in [`paper/main.tex`](../paper/main.tex).
+This file is a navigation aid rather than a second full proof.
 
-The answer to the question communicated to Richie Sater during correspondence
-with Victor Monakhov and Irina Sokhor beginning on August 8, 2026, is **no**.
-For every odd prime $p$, the group $G_p$ constructed below has no unrefinable
-subgroup chain with nondecreasing indices. The smallest member, $G_3$, has order
+## Theorem and mechanism
 
-\[
-|G_3|=2^6 3^8=419904.
-\]
-
-The construction is modeled on the $t=2$ case of an idea used by Joseph Kohler
-to show that bounds on maximal-subgroup indices need not pass to subgroups.
-The obstruction to a monotone chain appears to be new.
-
-## A maximal-subgroup lemma
-
-Let $V$ be an elementary abelian $p$-group and let a $p'$-group $H$
-act on $V$. Put $K=V\rtimes H$. Then the maximal subgroups of $K$
-are of the following two types:
-
-1. $V\rtimes J$, where $J$ is maximal in $H$;
-2. a $V$-conjugate of $W\rtimes H$, where $W$ is a maximal proper
-   $H$-submodule of $V$.
-
-Indeed, let $T$ be maximal in $K$. If $V\le T$, pass to $K/V\cong H$.
-Otherwise $VT=K$. The subgroup $W=V\cap T$ is normalized by $T$, and
-it is centralized by $V$, so $W\lhd K$. In $K/W$, both $T/W$ and
-$WH/W$ are complements to $V/W$. Schur--Zassenhaus makes them
-$V/W$-conjugate. Maximality of $T$ is then equivalent to maximality of
-$W$ among proper $H$-submodules.
-
-In particular, if $H$ is a $2$-group, the first type has index $2$,
-while an irreducible summand of dimension $d$ over $\mathbb F_p$ gives
-an index $p^d$ in the second type.
-
-## Construction
-
-Fix an odd prime $p$, put $F=\mathbb F_p$, and let
+For every odd prime $p$, the manuscript constructs a soluble group
+$G_p\leq\operatorname{GL}_5(p)$ of order $2^6p^8$ with no increasing
+unrefinable subgroup chain. Its conceptual core is the nested spectrum trap
 
 \[
-s=\begin{pmatrix}0&1\\1&0\end{pmatrix},\qquad
-t=\begin{pmatrix}1&0\\0&-1\end{pmatrix}.
+\{2,p^2\}\longrightarrow\{2,p^2,p^4\}
+\longrightarrow\{2,p^4\},
 \]
 
-Then $D=\langle s,t\rangle\cong D_8$. Its natural two-dimensional
-$F$-module $U$ is absolutely irreducible: over an algebraic closure, the
-only $t$-eigenlines are the two coordinate lines, and $s$ interchanges
-them.
+Reading downward, the trap forces two index-$p^2$ steps to $N$.  Its next
+admissible index is $2$, so every remaining lower index would also be $2$,
+contradicting $p\mid\lvert N\rvert$.
 
-Let $H=D\times D$. Define
+## Mathematical dependency graph
 
-\[
-L=\left\{
-\ell(x,y,z)=
-\begin{pmatrix}
-I_2&x&z\\
-0&1&y\\
-0&0&I_2
-\end{pmatrix}
-:x\in F^{2\times1},\ y\in F^{1\times2},\ z\in F^{2\times2}
-\right\}.
-\]
+1. **Abstract obstruction — Proposition 2.** Three maximal-index spectra,
+   two conjugacy-incidence statements, and $p\mid\lvert N\rvert$ exclude an
+   increasing chain. This step is independent of the matrix construction.
+2. **Coprime semidirect products — Lemma 3.** For $V\rtimes H$ with $V$ an
+   elementary abelian $p$-group and $H$ a $p'$-group, the maximal subgroups
+   arise either from maximal subgroups of $H$ or from maximal proper
+   $H$-submodules of $V$.
+3. **Matrix construction — Section 3.** The group $G_p=L\rtimes(D_8\times
+   D_8)$ has $\lvert L\rvert=p^8$ and
+   $L'=\Phi(L)=Z$. The quotient $L/Z$ has two nonisomorphic irreducible
+   layers of dimension $2$, while $Z$ is an irreducible layer of dimension
+   $4$.
+4. **Frattini reduction and spectra — Lemma 4.** Every maximal subgroup of
+   $G_p$ contains $Z$, so Lemma 3 applies successively to $G_p/Z$, the two
+   middle groups, and $N=Z\rtimes(D_8\times D_8)$. It supplies exactly the
+   spectra and incidences required by Proposition 2.
+5. **Conclusion — Theorem 1.** Lemma 4 instantiates Proposition 2 for every
+   odd prime $p$.
 
-Multiplication is
+The reusable result is Proposition 2. The matrix family is adapted from the
+$t=2$ construction in Section 4, especially Theorem 4.1, of Kohler's 1964
+paper.
 
-\[
-\ell(x,y,z)\ell(x',y',z')
-=\ell(x+x',y+y',z+z'+xy').
-\]
+## Verification boundary
 
-With the convention $[a,b]=a^{-1}b^{-1}ab$, the commutator is
+The universal quantifier is proved by the ordinary mathematical argument
+above. GAP provides finite corroboration and regression protection:
 
-\[
-[\ell(x,y,z),\ell(x',y',z')]
-=\ell(0,0,xy'-x'y).
-\]
+- `tests/counterexample.g` checks the orders, spectra, incidences, and failed
+  chain searches at $p=3,5,7$;
+- `G3-verification.g` separately defines the eight literal matrices for
+  $G_3$, enumerates the relevant maximal-subgroup classes, and exhaustively
+  searches the admissible branches;
+- `tests/mmc-crosscheck.g` compares the chain recurrence with a separate
+  exhaustive index-sequence enumeration for all $144$ groups of order at
+  most $32$.
 
-Thus $|L|=p^8$. Put
+Run the full suite with:
 
-\[
-Z=\{\ell(0,0,z)\},\quad
-X=\{\ell(x,0,0)\},\quad
-Y=\{\ell(0,y,0)\}.
-\]
+```sh
+make test
+```
 
-The outer products $xy$ span $F^{2\times2}$, so $L'=Z$. The group
-$L$ has exponent $p$, whence
-
-\[
-\Phi(L)=L^pL'=Z.
-\]
-
-Embed $H$ as the block-diagonal matrices
-$\operatorname{diag}(A,1,B)$, with $A,B\in D$. Conjugation gives
-
-\[
-x\longmapsto Ax,\qquad
-y\longmapsto yB^{-1},\qquad
-z\longmapsto AzB^{-1}.
-\]
-
-Finally set $G_p=L\rtimes H\le \operatorname{GL}_5(p)$. Its order is
-$2^6p^8$. Both factors are soluble, so $G_p$ is soluble.
-
-### The literal matrices for $p=3$
-
-For the smallest example, all entries are in $\mathbb F_3$ and $-1=2$.
-Writing $e_{ij}=I_5+E_{ij}$, the group is
-
-\[
-G_3=\langle e_{13},e_{23},e_{34},e_{35},
-\operatorname{diag}(s,1,I_2),\operatorname{diag}(t,1,I_2),
-\operatorname{diag}(I_2,1,s),\operatorname{diag}(I_2,1,t)\rangle.
-\]
-
-The standalone file `G3-verification.g` writes these eight generators as
-literal $5\times5$ matrices. It imports no project code and uses no optional
-GAP package. Besides checking the order $419904$, it enumerates all conjugacy
-classes of maximal subgroups of $G_3$, $M_X$, $M_Y$, and $N$, prints every
-resulting index, verifies coverage by the named subgroups, and independently
-searches all admissible top-down branches for a monotone chain.
-
-Set $\bar X=XZ/Z$ and $\bar Y=YZ/Z$. As an $H$-module,
-
-\[
-L/Z\cong \bar X\oplus\bar Y,
-\]
-
-where both summands are irreducible of dimension $2$. Their kernels in
-$H=D\times D$ are respectively $1\times D$ and $D\times1$, so they are
-nonisomorphic. Since $p\nmid |H|=64$, Maschke's theorem applies and these
-are the only maximal $H$-submodules of $L/Z$. Moreover,
-
-\[
-Z\cong U\boxtimes U^*,
-\]
-
-the external tensor product for the two factors of $D\times D$. Over an
-algebraic closure, $U$ and $U^*$ remain irreducible, and their external
-tensor product is irreducible for $D\times D$. Hence $Z$ is an irreducible
-$H$-module of dimension $4$.
-
-## Maximal-subgroup spectra
-
-The conjugation formulas show explicitly that $Z\lhd G_p$. Every maximal
-subgroup $M$ of $G_p$ contains $Z$. Otherwise
-$G_p=ZM$, and the modular law gives
-
-\[
-L=Z(L\cap M)=\Phi(L)(L\cap M).
-\]
-
-Here we use the standard Frattini fact that
-$L=\Phi(L)K$ implies $K=L$: if $K<L$, a maximal subgroup containing $K$
-also contains $\Phi(L)$, a contradiction. Thus $L\cap M=L$, contrary to
-$Z\nleq M$.
-
-Consequently the maximal subgroups of $G_p$ are read off from
-
-\[
-G_p/Z=(\bar X\oplus\bar Y)\rtimes H.
-\]
-
-The lemma gives the maximal-index spectrum
-
-\[
-\mathcal I(G_p)=\{2,p^2\}.
-\]
-
-Every maximal subgroup of index $p^2$ is conjugate to one of
-
-\[
-M_X=(Z\times X)\rtimes H,
-\qquad
-M_Y=(Z\times Y)\rtimes H.
-\]
-
-The two cases are symmetric. In $M_X$, the normal elementary abelian
-subgroup $Z\times X$ is the direct sum of irreducible $H$-modules of
-dimensions $4$ and $2$. Therefore
-
-\[
-\mathcal I(M_X)=\{2,p^2,p^4\}.
-\]
-
-The maximal subgroups of $M_X$ of index $p^2$ are conjugate to
-
-\[
-N=Z\rtimes H.
-\]
-
-Since $Z$ is irreducible of dimension $4$, a final application of the
-lemma gives
-
-\[
-\mathcal I(N)=\{2,p^4\}.
-\]
-
-## Excluding a nondecreasing chain
-
-Suppose
-
-\[
-1=G_0<G_1<\cdots<G_n=G_p
-\]
-
-were unrefinable, with $j_i=\lvert G_i:G_{i-1}\rvert$ nondecreasing.
-
-The last index belongs to $\{2,p^2\}$. It cannot be $2$, since then all
-the $j_i$ would equal $2$, whereas $p\mid |G_p|$. Hence $j_n=p^2$,
-and $G_{n-1}$ is conjugate to $M_X$ or $M_Y$.
-
-Inside that subgroup, the last available index must be at most $p^2$.
-Its spectrum is $\{2,p^2,p^4\}$. Again it cannot be $2$, so it equals
-$p^2$, and $G_{n-2}$ is conjugate to $N=Z\rtimes H$.
-
-But $N$ has maximal-index spectrum $\{2,p^4\}$. The next index must be
-at most $p^2$, so it would have to be $2$. All earlier indices would
-then also be $2$, impossible because $p\mid |N|$.
-
-This contradiction proves that $G_p$ has no required chain.
-
-## Computational check
-
-For the self-contained $p=3$ certificate, run:
-
-~~~sh
-gap -A -q --quitonbreak G3-verification.g
-~~~
-
-For the complete family tests, run:
-
-~~~sh
-./src/run-gap.sh tests/counterexample.g
-~~~
-
-For $p=3,5,7$, GAP reproduces the predicted spectra. For $p=3$ they are
-
-~~~text
-[2,9], [2,9,81], [2,81]
-~~~
-
-and an exhaustive branch-and-bound search returns no monotone maximal
-chain.
+Captured successful outputs are stored in `data/`. No proof assistant or
+proof-producing computation is used.

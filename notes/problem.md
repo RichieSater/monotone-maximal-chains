@@ -18,19 +18,28 @@ such that:
 2. the upward indices \(a_i=\lvert G_i:G_{i-1}\rvert\) satisfy
    \(a_1\le a_2\le\cdots\le a_n\)?
 
-Monakhov and Sokhor call such a chain a **`(<)`-chain**. This repository also
+Monakhov and Sokhor call such a chain a **`<`-chain**. This repository also
 uses the descriptive term **monotone maximal chain** (MMC).
 
 ## Resolution
 
 The answer is negative.  See `proofs/counterexample.md` for an infinite
 family of soluble counterexamples of order \(2^6p^8\), one for each odd
-prime \(p\).
+prime \(p\). Their maximal-index spectra form the nested pattern
+
+\[
+\{2,p^2\}\longrightarrow\{2,p^2,p^4\}
+\longrightarrow\{2,p^4\},
+\]
+
+Reading downward, monotonicity forces two index-\(p^2\) steps to the terminal
+group \(N\). Its only admissible next index is \(2\), so every remaining lower
+index would also be \(2\), contradicting \(p\mid\lvert N\rvert\).
 
 ## Immediate observations
 
-- Since \(G_1\) is minimal nontrivial, \(|G_1|\) is prime.
-- The product of the index sequence is \(|G|\).
+- Since \(G_1\) is minimal nontrivial, \(\lvert G_1\rvert\) is prime.
+- The product of the index sequence is \(\lvert G\rvert\).
 - The property is invariant under group isomorphism.
 - A counterexample can be sought among groups for which every maximal subgroup either fails recursively or forces too small a final index.
 

@@ -7,3 +7,6 @@ build/
 *.log
 *.out
 *.toc
+
+# Local manuscript-restructuring brief (intentionally not published).
+/suggestions.md

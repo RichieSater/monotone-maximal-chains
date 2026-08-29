@@ -2,7 +2,7 @@ Licensing information
 =====================
 
 Unless a file states otherwise, the source code in this repository
-(`src/`, `tests/`, `.github/`, shell scripts, and the `Makefile`) is
+(`src/`, `scripts/`, `tests/`, `.github/`, shell scripts, and the `Makefile`) is
 available under the MIT License below.
 
 The manuscript and documentation (`paper/`, `notes/`, `proofs/`, and

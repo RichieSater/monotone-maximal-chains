@@ -29,15 +29,15 @@ but do not establish its universal quantifier.
 ## Read and cite
 
 - [Current manuscript PDF](paper/main.pdf)
-- [Archived version 1.1.0 preprint and verification materials](https://doi.org/10.5281/zenodo.21878837)
-- [GitHub release v1.1.0](https://github.com/RichieSater/monotone-maximal-chains/releases/tag/v1.1.0)
+- [Version 2.0.0 preprint and verification archive](https://doi.org/10.5281/zenodo.22213657)
+- [GitHub release v2.0.0](https://github.com/RichieSater/monotone-maximal-chains/releases/tag/v2.0.0)
 
-The DOI identifies the five-page version 1.1.0 preprint, *A Negative Answer to
-a Question on Monotone Maximal Chains in Finite Groups*, and its verification
-materials. It does not identify the current seven-page manuscript under the
-title shown above. The archived record includes the old preprint, the
-standalone `G3-verification.g` script, captured successful runs under GAP
-4.11.1 and GAP 4.16.0, a source archive, and SHA-256 checksums.
+The version DOI identifies the current seven-page manuscript and its
+verification materials. The archive includes the manuscript, the standalone
+`G3-verification.g` script, captured successful runs under GAP 4.11.1 and GAP
+4.16.0, a source archive, and SHA-256 checksums. The concept DOI
+[10.5281/zenodo.21878836](https://doi.org/10.5281/zenodo.21878836) resolves to
+the latest archived version.
 
 ## Verify
 

@@ -1,7 +1,7 @@
 .PHONY: test public-corpus public-corpus-mutation output-capture-test paper-sync counterexample g3-verification smoke mmc-crosscheck outputs paper clean-paper
 
-# Stable manuscript timestamp: 2026-08-29 00:00:00 UTC.
-SOURCE_DATE_EPOCH ?= 1787961600
+# Stable manuscript timestamp: 2026-08-31 00:00:00 UTC.
+SOURCE_DATE_EPOCH ?= 1788134400
 TECTONIC ?= tectonic
 
 test: public-corpus public-corpus-mutation output-capture-test paper-sync smoke mmc-crosscheck counterexample g3-verification

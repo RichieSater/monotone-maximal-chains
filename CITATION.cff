@@ -1,19 +1,19 @@
 cff-version: 1.2.0
 message: >-
-  This file describes the archived version 1.1.0 preprint and verification
-  materials. It does not describe the current working manuscript.
-title: "A Negative Answer to a Question on Monotone Maximal Chains in Finite Groups"
+  If you use this manuscript or its verification materials, please cite this
+  archived version.
+title: "Finite Soluble Groups Need Not Admit Increasing Unrefinable Subgroup Chains"
 type: software
-version: 1.1.0
-date-released: 2026-08-09
-doi: "10.5281/zenodo.21878837"
+version: 2.0.0
+date-released: 2026-08-31
+doi: "10.5281/zenodo.22213657"
 authors:
   - family-names: Sater
     given-names: Richie
     email: richiesater@gmail.com
     orcid: "https://orcid.org/0009-0007-9051-8207"
 repository-code: "https://github.com/RichieSater/monotone-maximal-chains"
-url: "https://github.com/RichieSater/monotone-maximal-chains/releases/tag/v1.1.0"
+url: "https://github.com/RichieSater/monotone-maximal-chains/releases/tag/v2.0.0"
 keywords:
   - finite groups
   - maximal chains
@@ -22,7 +22,7 @@ keywords:
   - GAP
 preferred-citation:
   type: article
-  title: "A Negative Answer to a Question on Monotone Maximal Chains in Finite Groups"
+  title: "Finite Soluble Groups Need Not Admit Increasing Unrefinable Subgroup Chains"
   authors:
     - family-names: Sater
       given-names: Richie
@@ -30,5 +30,5 @@ preferred-citation:
       orcid: "https://orcid.org/0009-0007-9051-8207"
   year: 2026
   month: 8
-  doi: "10.5281/zenodo.21878837"
-  url: "https://doi.org/10.5281/zenodo.21878837"
+  doi: "10.5281/zenodo.22213657"
+  url: "https://doi.org/10.5281/zenodo.22213657"

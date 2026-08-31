@@ -343,19 +343,15 @@ class PublicCorpusMutationTest(unittest.TestCase):
             path="paper/main.pdf",
         )
 
-    def test_archived_doi_keeps_the_archived_title(self) -> None:
+    def test_archived_doi_matches_the_current_title(self) -> None:
         root = Path(__file__).resolve().parents[1]
         cff = (root / "CITATION.cff").read_text(encoding="utf-8")
-        archived_title = (
-            "A Negative Answer to a Question on Monotone Maximal Chains in "
-            "Finite Groups"
-        )
         current_title = (
             "Finite Soluble Groups Need Not Admit Increasing Unrefinable "
             "Subgroup Chains"
         )
-        self.assertIn(archived_title, cff)
-        self.assertNotIn(current_title, cff)
+        self.assertIn(current_title, cff)
+        self.assertIn("10.5281/zenodo.22213657", cff)
 
 
 if __name__ == "__main__":

@@ -351,7 +351,7 @@ class PublicCorpusMutationTest(unittest.TestCase):
             "Subgroup Chains"
         )
         self.assertIn(current_title, cff)
-        self.assertIn("10.5281/zenodo.22213657", cff)
+        self.assertIn("10.5281/zenodo.22214040", cff)
 
 
 if __name__ == "__main__":

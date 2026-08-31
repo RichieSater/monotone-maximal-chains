@@ -29,15 +29,14 @@ but do not establish its universal quantifier.
 ## Read and cite
 
 - [Current manuscript PDF](paper/main.pdf)
-- [Version 2.0.0 preprint and verification archive](https://doi.org/10.5281/zenodo.22213657)
-- [GitHub release v2.0.0](https://github.com/RichieSater/monotone-maximal-chains/releases/tag/v2.0.0)
+- [Zenodo archive (concept DOI)](https://doi.org/10.5281/zenodo.22214040)
+- [GitHub release v2.0.1](https://github.com/RichieSater/monotone-maximal-chains/releases/tag/v2.0.1)
 
-The version DOI identifies the current seven-page manuscript and its
-verification materials. The archive includes the manuscript, the standalone
+Zenodo's GitHub integration automatically preserves each repository release;
+the concept DOI resolves to the latest archived version. The GitHub release
+includes the current seven-page manuscript, the standalone
 `G3-verification.g` script, captured successful runs under GAP 4.11.1 and GAP
-4.16.0, a source archive, and SHA-256 checksums. The concept DOI
-[10.5281/zenodo.21878836](https://doi.org/10.5281/zenodo.21878836) resolves to
-the latest archived version.
+4.16.0, an exact source archive, and SHA-256 checksums.
 
 ## Verify
 

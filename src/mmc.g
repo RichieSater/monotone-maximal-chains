@@ -8,7 +8,9 @@
 # with value 0 if no MMC exists and MMCLast(1) = 1.  Then
 #
 #   MMCLast(G) = min { |G:M| : M maximal in G,
-#                              MMCLast(M) <= |G:M| }.
+#                              0 < MMCLast(M) <= |G:M| }
+#
+# for nontrivial G, with value 0 when the set is empty.
 #
 # Conjugate maximal subgroups have the same value, so class representatives
 # suffice.  The cache is indexed by IdGroup and is therefore intended for

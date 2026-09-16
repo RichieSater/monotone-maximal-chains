@@ -1,9 +1,8 @@
-# Finite Soluble Groups Need Not Admit Increasing Unrefinable Subgroup Chains
+# Finite Soluble Groups Without Increasing Unrefinable Chains
 
 This repository contains a mathematical note, exact GAP verification scripts,
-and captured outputs for a negative answer to a question on increasing
-unrefinable subgroup chains communicated to the author during correspondence
-with V. S. Monakhov and I. L. Sokhor.
+and captured outputs for a negative answer to a question of V. S. Monakhov
+and I. L. Sokhor on increasing unrefinable subgroup chains.
 
 For every odd prime \(p\), the note constructs a soluble matrix group
 \(G_p\leq \operatorname{GL}_5(p)\) of order \(2^6p^8\) with no unrefinable
@@ -21,22 +20,48 @@ index would also be \(2\), contradicting \(p\mid\lvert N\rvert\). The smallest
 member of the family, \(G_3\), has order \(419904\); no claim of global
 minimality is made.
 
-The ordinary group-theoretic argument proves the family for every odd prime.
-GAP reproduces selected instances at \(p=3,5,7\) and exhaustively searches
-the displayed group \(G_3\); these computations corroborate the construction
-but do not establish its universal quantifier.
+The group-theoretic argument proves the result for every odd prime,
+independently of computation. GAP checks the construction and absence of
+increasing chains at \(p=3,5,7\).
+
+## The explicit example
+
+Section 4 of the manuscript gives eight generators for \(G_3\) using matrix
+units and block-diagonal matrices. The standalone
+[`G3-verification.g`](G3-verification.g) spells them out as literal
+\(5\times5\) matrices over \(\mathbb F_3\), imports no repository file,
+and requires no optional GAP package. To run just this calculation:
+
+```sh
+make g3-verification
+```
+
+It checks the orders and maximal inclusions, enumerates every conjugacy
+class of maximal subgroups in the four relevant groups, checks that the
+named subgroups cover all relevant classes, and performs a separate
+exhaustive top-down chain search. Successful outputs are stored for
+[GAP 4.11.1](data/G3-verification-gap-4.11.1.txt) and
+[GAP 4.16.0](data/G3-verification-gap-4.16.0.txt).
+
+The family tests in `tests/counterexample.g` check \(p=3,5,7\).
+The independent recurrence implementation in `tests/mmc-crosscheck.g`
+enumerates admissible index sequences for all 144 groups of order at most
+32 and checks the returned subgroup chains. These routines share GAP's
+maximal-subgroup algorithms; they are not formal proofs or independent
+computer algebra systems.
 
 ## Read and cite
 
 - [Current manuscript PDF](paper/main.pdf)
 - [Zenodo archive (concept DOI)](https://doi.org/10.5281/zenodo.22214040)
-- [GitHub release v2.0.1](https://github.com/RichieSater/monotone-maximal-chains/releases/tag/v2.0.1)
+- [GitHub release v2.1.0](https://github.com/RichieSater/monotone-maximal-chains/releases/tag/v2.1.0)
 
-Zenodo's GitHub integration automatically preserves each repository release;
-the concept DOI resolves to the latest archived version. The GitHub release
-includes the current seven-page manuscript, the standalone
-`G3-verification.g` script, captured successful runs under GAP 4.11.1 and GAP
-4.16.0, an exact source archive, and SHA-256 checksums.
+Release `v2.1.0` contains the four-page manuscript, the standalone
+`G3-verification.g` script, captured GAP outputs, an exact source archive,
+and SHA-256 checksums. The preferred citation in `CITATION.cff` identifies
+this version. The earlier seven-page manuscript remains available in
+release `v2.0.1` under the title *Finite Soluble Groups Need Not Admit
+Increasing Unrefinable Subgroup Chains*.
 
 ## Verify
 

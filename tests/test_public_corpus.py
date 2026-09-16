@@ -3,6 +3,7 @@
 
 from itertools import permutations
 from pathlib import Path
+import subprocess
 import unittest
 
 from scripts.public_corpus import (
@@ -321,7 +322,22 @@ class PublicCorpusMutationTest(unittest.TestCase):
         root = Path(__file__).resolve().parents[1]
         text, findings = extract_pdf_text(root / "paper" / "main.pdf", root)
         self.assertEqual([], findings)
-        self.assertIn("finite soluble groups need not admit", text.casefold())
+        self.assertIn(
+            "finite soluble groups without increasing unrefinable chains",
+            " ".join(text.casefold().split()),
+        )
+        metadata = subprocess.run(
+            ["pdfinfo", str(root / "paper" / "main.pdf")],
+            check=True, capture_output=True, text=True,
+        ).stdout
+        title = next(
+            line.partition(":")[2].strip()
+            for line in metadata.splitlines() if line.startswith("Title:")
+        )
+        self.assertEqual(
+            "Finite Soluble Groups Without Increasing Unrefinable Chains",
+            title,
+        )
 
         outside = "ChatG" + "PT helped draft the paper.\n"
         outside_mutation = text.replace(
@@ -343,14 +359,16 @@ class PublicCorpusMutationTest(unittest.TestCase):
             path="paper/main.pdf",
         )
 
-    def test_archived_doi_matches_the_current_title(self) -> None:
+    def test_release_citation_matches_the_current_title(self) -> None:
         root = Path(__file__).resolve().parents[1]
         cff = (root / "CITATION.cff").read_text(encoding="utf-8")
-        current_title = (
-            "Finite Soluble Groups Need Not Admit Increasing Unrefinable "
-            "Subgroup Chains"
-        )
-        self.assertIn(current_title, cff)
+        current_title = "Finite Soluble Groups Without Increasing Unrefinable Chains"
+        current, preferred = cff.split("preferred-citation:", 1)
+        self.assertIn('title: "' + current_title + '"', current)
+        self.assertIn('title: "' + current_title + '"', preferred)
+        self.assertIn("version: 2.1.0", current)
+        self.assertIn("date-released: 2026-09-16", current)
+        self.assertIn("releases/tag/v2.1.0", current)
         self.assertIn("10.5281/zenodo.22214040", cff)
 
 

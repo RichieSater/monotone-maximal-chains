@@ -2,10 +2,10 @@ cff-version: 1.2.0
 message: >-
   If you use this manuscript or its verification materials, please cite this
   archived version.
-title: "Finite Soluble Groups Need Not Admit Increasing Unrefinable Subgroup Chains"
+title: "Finite Soluble Groups Without Increasing Unrefinable Chains"
 type: software
-version: 2.0.1
-date-released: 2026-08-31
+version: 2.1.0
+date-released: 2026-09-16
 doi: "10.5281/zenodo.22214040"
 authors:
   - family-names: Sater
@@ -13,7 +13,7 @@ authors:
     email: richiesater@gmail.com
     orcid: "https://orcid.org/0009-0007-9051-8207"
 repository-code: "https://github.com/RichieSater/monotone-maximal-chains"
-url: "https://github.com/RichieSater/monotone-maximal-chains/releases/tag/v2.0.1"
+url: "https://github.com/RichieSater/monotone-maximal-chains/releases/tag/v2.1.0"
 keywords:
   - finite groups
   - maximal chains
@@ -22,13 +22,13 @@ keywords:
   - GAP
 preferred-citation:
   type: article
-  title: "Finite Soluble Groups Need Not Admit Increasing Unrefinable Subgroup Chains"
+  title: "Finite Soluble Groups Without Increasing Unrefinable Chains"
   authors:
     - family-names: Sater
       given-names: Richie
       email: richiesater@gmail.com
       orcid: "https://orcid.org/0009-0007-9051-8207"
   year: 2026
-  month: 8
+  month: 9
   doi: "10.5281/zenodo.22214040"
   url: "https://doi.org/10.5281/zenodo.22214040"

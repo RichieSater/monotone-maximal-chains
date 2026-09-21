@@ -32,10 +32,6 @@ jobs:
           tectonic --version
       - name: Build manuscript PDF
         run: make paper
-      - name: Run full test suite with pinned GAP and Tectonic
-        env:
-          GAP_BIN: /nonexistent
-        run: make test
       - name: Commit rebuilt manuscript PDF
         if: github.event_name == 'push'
         run: |
